@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Plugin.Sensors</id>
+        <version>1.0.0</version>
+        <title>ACR Reactive Motion Sensors Plugin for Xamarin and Windows</title>
+        <summary>ACR Reactive Motion Sensors Plugin for Xamarin and Windows</summary>
+        <description>
+Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
+
+Supported Platforms
+Android 4.3+
+iOS 7+
+Windows
+        </description>
+        <authors>Allan Ritchie</authors>
+        <owners>Allan Ritchie</owners>
+        <iconUrl>https://github.com/aritchie/sensors/raw/master/icon.png</iconUrl>
+        <licenseUrl>https://github.com/aritchie/sensors/LICENSE.md</licenseUrl>
+        <projectUrl>https://github.com/aritchie/sensors</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <tags>ios android xamarin rx reactive motion sensors</tags>
+        <dependencies>
+            <group targetFramework="Xamarin.iOS10">
+                <dependency id="rx-main" version="[2.2.5, 3)" />
+            </group>
+            <group targetFramework="MonoAndroid10">
+                <dependency id="rx-main" version="[2.2.5, 3)" />
+            </group>
+            <group targetFramework="uap10.0">
+                <dependency id="rx-main" version="[2.2.5, 3)" />
+            </group>
+        </dependencies>
+        <releaseNotes>
+1.0
+Initial Release
+        </releaseNotes>
+    </metadata>
+</package>
