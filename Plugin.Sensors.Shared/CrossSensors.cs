@@ -62,5 +62,64 @@ namespace Plugin.Sensors
             }
             set { customAccel = value; }
         }
+
+
+
+        static IBarometer customBaro;
+
+        public static IBarometer Barometer
+        {
+            get
+            {
+#if PCL
+                if (customBaro == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+
+                return customBaro;
+#else
+                customBaro = customBaro ?? new BarometerImpl();
+                return customBaro;
+#endif
+            }
+            set { customBaro = value; }
+        }
+
+
+        static ICompass customCompass;
+        public static ICompass Compass
+        {
+            get
+            {
+#if PCL
+                if (customCompass == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+
+                return customCompass;
+#else
+                customCompass = customCompass ?? new CompassImpl();
+                return customCompass;
+#endif
+            }
+            set { customCompass = value; }
+        }
+
+
+        static IPedometer customPedometer;
+        public static IPedometer Pedometer
+        {
+            get
+            {
+#if PCL
+                if (customPedometer == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+
+                return customPedometer;
+#else
+                customPedometer = customPedometer ?? new PedometerImpl();
+                return customPedometer;
+#endif
+            }
+            set { customPedometer = value; }
+        }
     }
 }

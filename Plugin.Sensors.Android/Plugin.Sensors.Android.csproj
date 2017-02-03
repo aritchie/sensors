@@ -58,6 +58,7 @@
     <Compile Include="AbstractSensor.cs" />
     <Compile Include="AccelerometerImpl.cs" />
     <Compile Include="AcrSensorManager.cs" />
+    <Compile Include="BarometerImpl.cs" />
     <Compile Include="GyroscopeImpl.cs" />
     <Compile Include="MagnetometerImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -8,10 +8,20 @@
         <description>
 Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
 
+Sensors
+* Accelerometer
+* TODO Barometer
+* TODO Compass
+* Gyroscope
+* Magnetometer
+* TODO Pedometer
+* TODO Proximity
+
+
 Supported Platforms
-Android 4.3+
-iOS 7+
-Windows
+* Android 4.3+
+* iOS 8+
+* Windows
         </description>
         <authors>Allan Ritchie</authors>
         <owners>Allan Ritchie</owners>

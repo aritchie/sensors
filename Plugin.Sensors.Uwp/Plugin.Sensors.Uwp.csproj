@@ -108,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccelerometerImpl.cs" />
+    <Compile Include="BarometerImpl.cs" />
+    <Compile Include="CompassImpl.cs" />
     <Compile Include="GyroscopeImpl.cs" />
     <Compile Include="MagnetometerImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

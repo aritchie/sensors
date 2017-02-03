@@ -23,6 +23,7 @@ namespace Plugin.Sensors
         public virtual IObservable<bool> IsAvailable() => Observable.Return(true);
         public TimeSpan ReportInterval { get; set; }
 
+
         IObservable<T> readOb;
         public IObservable<T> WhenReadingTaken()
         {

@@ -8,6 +8,6 @@ namespace Plugin.Sensors
         TimeSpan ReportInterval { get; set; }
         IObservable<bool> IsAvailable();
         IObservable<MotionReading> WhenReadingTaken();
-        IObservable<object> WhenShaken();
+        //IObservable<object> WhenShaken();
     }
 }

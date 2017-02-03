@@ -39,9 +39,15 @@
     <Compile Include="..\Plugin.Sensors.Shared\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CompassAccuracy.cs" />
+    <Compile Include="CompassReading.cs" />
     <Compile Include="IAccelerometer.cs" />
+    <Compile Include="IAmbientLight.cs" />
+    <Compile Include="IBarometer.cs" />
+    <Compile Include="ICompass.cs" />
     <Compile Include="IGyroscope.cs" />
     <Compile Include="IMagnetometer.cs" />
+    <Compile Include="IPedometer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MotionReading.cs" />
   </ItemGroup>
