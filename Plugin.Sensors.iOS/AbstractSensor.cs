@@ -19,7 +19,7 @@ namespace Plugin.Sensors
         public IObservable<bool> IsAvailable() => Observable.Return(this.IsSensorAvailable(this.motionManager));
 
 
-        TimeSpan reportInterval;
+		TimeSpan reportInterval = TimeSpan.FromMilliseconds(500);
         public TimeSpan ReportInterval
         {
             get { return this.reportInterval; }

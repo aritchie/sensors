@@ -1,38 +1,33 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Sample;assembly=Sample"
              x:Class="Sample.MainPage"
             Title="Samples">
 
-    <ContentPage.Resources>
-        <vm:AccelerometerViewModel x:Key="AccelerometerViewModel" />
-        <vm:GyroscopeViewModel x:Key="GyroscopeViewModel" />
-        <vm:MagnetometerViewModel x:Key="MagnetometerViewModel" />
-    </ContentPage.Resources>
-
     <ContentPage.Content>
         <TableView>
             <TableRoot>
-                <TableSection Title="Accelerometer" BindingContext="{x:StaticResource AccelerometerViewModel}">
+                <TableSection x:Name="accelSection" Title="Accelerometer">
+
                     <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
                     <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
                     <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />
-                    <TextCell Text="{Binding ToggleText}" Detail="{Binding Toggle}" />
+                    <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
                 </TableSection>
 
-                <TableSection Title="Gyroscope" BindingContext="{x:StaticResource GyroscopeViewModel}">
+                <TableSection x:Name="gyroSection" Title="Gyroscope">
                     <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
                     <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
                     <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />
-                    <TextCell Text="{Binding ToggleText}" Detail="{Binding Toggle}" />
+                    <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
                 </TableSection>
 
-                <TableSection Title="Magnetometer" BindingContext="{x:StaticResource MagnetometerViewModel}">
+                <TableSection x:Name="magnetSection" Title="Magnetometer">
                     <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
                     <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
                     <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />
-                    <TextCell Text="{Binding ToggleText}" Detail="{Binding Toggle}" />
+                    <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
                 </TableSection>
             </TableRoot>
         </TableView>

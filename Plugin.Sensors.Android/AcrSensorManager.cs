@@ -8,14 +8,19 @@ namespace Plugin.Sensors
 {
     public class AcrSensorManager : Java.Lang.Object, ISensorEventListener
     {
-        SensorManager sensorManager;
+        readonly SensorManager sensorManager;
         Action<SensorEvent> action;
+
+
+		public AcrSensorManager(SensorManager sensorManager)
+		{
+			this.sensorManager = sensorManager;
+		}
 
 
         public bool Start(SensorType sensorType, SensorDelay delay, Action<SensorEvent> sensorAction)
         {
             this.action = sensorAction;
-            this.sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
             var sensor = this.sensorManager.GetDefaultSensor(sensorType);
             var result = this.sensorManager.RegisterListener(this, sensor, delay);
             return result;
