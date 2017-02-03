@@ -3,21 +3,20 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Plugin.Sensors;
-using PropertyChanged;
 using Xamarin.Forms;
-
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace Sample
 {
-    [ImplementPropertyChanged]
-    public abstract class AbstractMotionViewModel : INotifyPropertyChanged
+    public abstract class AbstractMotionViewModel : ReactiveObject
     {
         public ICommand Toggle { get; protected set; }
-        public string ToggleText { get; set; } = "Start";
-        public bool IsSupported { get; set; }
-        public double XAxis { get; set; }
-        public double YAxis { get; set; }
-        public double ZAxis { get; set; }
+        [Reactive] public string ToggleText { get; protected set; } = "Start";
+        [Reactive] public bool IsSupported { get; protected set; }
+        [Reactive] public double XAxis { get; protected set; }
+        [Reactive] public double YAxis { get; protected set; }
+        [Reactive] public double ZAxis { get; protected set; }
 
 
         protected virtual void Update(MotionReading reading)
@@ -28,14 +27,6 @@ namespace Sample
                 this.YAxis = reading.Y;
                 this.ZAxis = reading.Z;
             });
-        }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
