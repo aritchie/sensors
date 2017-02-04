@@ -9,7 +9,7 @@ using Xamarin.Forms.Platform.Android;
 namespace Sample.Droid
 {
     [Activity(
-        Label = "Sample",
+        Label = "Sensors",
         Icon = "@drawable/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
