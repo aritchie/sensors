@@ -4,7 +4,7 @@ using Android.Hardware;
 
 namespace Plugin.Sensors
 {
-    public class ProximityImpl : AbstractSensor<bool>
+    public class ProximityImpl : AbstractSensor<bool>, IProximity
     {
         public ProximityImpl() : base(SensorType.Proximity)
         {
