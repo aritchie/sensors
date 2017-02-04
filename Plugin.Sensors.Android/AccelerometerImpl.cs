@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Android.Hardware;
 
 
@@ -12,9 +11,9 @@ namespace Plugin.Sensors
         }
 
 
-        protected override MotionReading ToReading(IList<float> values)
+        protected override MotionReading ToReading(SensorEvent e)
         {
-            return new MotionReading(values[0], values[1], values[2]);
+            return new MotionReading(e.Values[0], e.Values[1], e.Values[2]);
         }
     }
 }

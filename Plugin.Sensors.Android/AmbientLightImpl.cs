@@ -4,9 +4,9 @@ using Android.Hardware;
 
 namespace Plugin.Sensors
 {
-    public class BarometerImpl : AbstractSensor<double>, IBarometer
+    public class AmbientLightImpl : AbstractSensor<double>, IAmbientLight
     {
-        public BarometerImpl() : base(SensorType.Pressure)
+        public AmbientLightImpl() : base(SensorType.Light)
         {
         }
 

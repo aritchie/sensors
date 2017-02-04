@@ -23,7 +23,7 @@ namespace Plugin.Sensors
         }
 
 
-        protected abstract T ToReading(IList<float> values);
+        protected abstract T ToReading(SensorEvent e);
 
 
 		public virtual IObservable<bool> IsAvailable() => Observable.Return(this.IsSensorAvailable);
@@ -37,10 +37,11 @@ namespace Plugin.Sensors
             this.readOb = this.readOb ?? Observable.Create<T>(ob =>
             {
 				var mgr = new AcrSensorManager(this.sensorManager);
+                var delay = this.ToSensorDelay(this.ReportInterval);
 
-                mgr.Start(this.type, this.ToSensorDelay(this.ReportInterval), e =>
+                mgr.Start(this.type, delay, e =>
                 {
-                    var reading = this.ToReading(e.Values);
+                    var reading = this.ToReading(e);
                     ob.OnNext(reading);
                 });
                 return () => mgr.Stop();
@@ -49,13 +50,6 @@ namespace Plugin.Sensors
             .RefCount();
 
             return this.readOb;
-        }
-
-
-        public IObservable<object> WhenShaken()
-        {
-            //http://stackoverflow.com/questions/5271448/how-to-detect-shake-event-with-android
-            throw new NotImplementedException();
         }
 
 
