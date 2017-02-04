@@ -3,20 +3,20 @@
     <metadata>
         <id>Plugin.Sensors</id>
         <version>1.0.0</version>
-        <title>ACR Reactive Motion Sensors Plugin for Xamarin and Windows</title>
-        <summary>ACR Reactive Motion Sensors Plugin for Xamarin and Windows</summary>
+        <title>ACR Reactive Sensors Plugin for Xamarin and Windows</title>
+        <summary>ACR Reactive Sensors Plugin for Xamarin and Windows</summary>
         <description>
 Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
 
-Sensors
+Available Sensors
 * Accelerometer
-* TODO Barometer
-* TODO Compass
+* Ambient Light
+* Barometer
+* Compass
 * Gyroscope
 * Magnetometer
-* TODO Pedometer
-* TODO Proximity
-
+* Pedometer
+* Proximity
 
 Supported Platforms
 * Android 4.3+
