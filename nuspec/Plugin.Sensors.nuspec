@@ -26,7 +26,7 @@ Supported Platforms
         </description>
         <authors>Allan Ritchie</authors>
         <owners>Allan Ritchie</owners>
-        <iconUrl>https://github.com/aritchie/sensors/raw/master/icon.png</iconUrl>
+        <!--<iconUrl>https://github.com/aritchie/sensors/raw/master/icon.png</iconUrl>-->
         <licenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/aritchie/sensors</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
