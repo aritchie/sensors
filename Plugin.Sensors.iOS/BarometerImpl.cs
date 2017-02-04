@@ -9,10 +9,7 @@ namespace Plugin.Sensors
     public class BarometerImpl : IBarometer
     {
 
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(CMAltimeter.IsRelativeAltitudeAvailable);
-        }
+        public bool IsAvailable => CMAltimeter.IsRelativeAltitudeAvailable;
 
 
         IObservable<double> readOb;

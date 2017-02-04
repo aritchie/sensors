@@ -1,14 +1,21 @@
 ﻿using System;
+using Windows.Devices.Sensors;
 
 
 namespace Plugin.Sensors
 {
     public class PedometerImpl : IPedometer
     {
-        public IObservable<bool> IsAvailable()
+        readonly Pedometer pedometer;
+
+
+        public PedometerImpl()
         {
-            throw new NotImplementedException();
+            //this.pedometer = Pedometer.GetDefaultAsync();
         }
+
+
+        public bool IsAvailable => false;
 
 
         public IObservable<int> WhenReadingTaken()

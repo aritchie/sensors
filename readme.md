@@ -19,8 +19,13 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 ## FEATURES
 
 * Accelerometer
+* Ambient Light
+* Barometer
+* Compass
 * Gyroscope
 * Magnetometer
+* Pedometer
+* Proximity
 
 
 ## SETUP

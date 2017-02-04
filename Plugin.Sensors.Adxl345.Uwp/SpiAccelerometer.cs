@@ -16,25 +16,6 @@ namespace Plugin.Sensors.Adxl345.Uwp
         SpiDevice device;
 
 
-        public override IObservable<bool> IsAvailable()
-        {
-            return Observable.Create<bool>(async ob =>
-            {
-                var result = false;
-                try
-                {
-                    await this.InitSpiDevice();
-                    result = true;
-                }
-                finally
-                {
-                }
-                ob.OnNext(result);
-                ob.OnCompleted();
-            });
-        }
-
-
         IObservable<MotionReading> readOb;
         public override IObservable<MotionReading> WhenReadingTaken()
         {

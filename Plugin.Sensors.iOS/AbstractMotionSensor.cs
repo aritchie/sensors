@@ -16,7 +16,7 @@ namespace Plugin.Sensors
         protected abstract void SetReportInterval(CMMotionManager mgr, TimeSpan timeSpan);
 
 
-        public IObservable<bool> IsAvailable() => Observable.Return(this.IsSensorAvailable(this.motionManager));
+        public bool IsAvailable => this.IsSensorAvailable(this.motionManager);
 
 
 		TimeSpan reportInterval = TimeSpan.FromMilliseconds(500);

@@ -17,10 +17,7 @@ namespace Plugin.Sensors
         }
 
 
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(this.barometer != null);
-        }
+        public bool IsAvailable => this.barometer != null;
 
 
         IObservable<double> readOb;
@@ -35,7 +32,10 @@ namespace Plugin.Sensors
                 //this.barometer.ReportInterval =
                 this.barometer.ReadingChanged += handler;
                 return () => this.barometer.ReadingChanged -= handler;
-            });
+            })
+            .Publish()
+            .RefCount();
+
             return this.readOb;
         }
     }

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Android.Hardware;
 
 
@@ -12,9 +11,9 @@ namespace Plugin.Sensors
         }
 
 
-        protected override bool ToReading(IList<float> values)
+        protected override bool ToReading(SensorEvent e)
         {
-
+            return true;
         }
     }
 }

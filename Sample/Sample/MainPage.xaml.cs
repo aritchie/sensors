@@ -9,9 +9,6 @@ namespace Sample
         public MainPage()
         {
             InitializeComponent();
-			this.accelSection.BindingContext = new AccelerometerViewModel();
-			this.gyroSection.BindingContext = new GyroscopeViewModel();
-			this.magnetSection.BindingContext = new MagnetometerViewModel();
         }
     }
 }

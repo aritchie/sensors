@@ -17,10 +17,7 @@ namespace Plugin.Sensors
         }
 
 
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(this.compass != null);
-        }
+        public bool IsAvailable => this.compass != null;
 
 
         IObservable<CompassReading> readOb;
@@ -30,17 +27,38 @@ namespace Plugin.Sensors
             {
                 var handler = new TypedEventHandler<Compass, CompassReadingChangedEventArgs>((sender, args) =>
                 {
-                    //ob.OnNext(new CompassReading(args.Reading.HeadingAccuracy.Unknown, args.Reading.HeadingMagneticNorth, args.Reading?.HeadingTrueNorth ?? 0));
+                    var accuracy = this.FromNative(args.Reading.HeadingAccuracy);
+                    var read = new CompassReading(accuracy, args.Reading.HeadingMagneticNorth, args.Reading.HeadingTrueNorth ?? 0);
+                    ob.OnNext(read);
                 });
-                this.compass.ReportInterval = 0;
+                //this.compass.ReportInterval = 0;
                 this.compass.ReadingChanged += handler;
 
-                return () =>
-                {
-                    this.compass.ReadingChanged -= handler;
-                };
-            });
+                return () => this.compass.ReadingChanged -= handler;
+            })
+            .Publish()
+            .RefCount();
+
             return this.readOb;
+        }
+
+
+        protected CompassAccuracy FromNative(MagnetometerAccuracy native)
+        {
+            switch (native)
+            {
+                case MagnetometerAccuracy.High:
+                    return CompassAccuracy.High;
+
+                case MagnetometerAccuracy.Unreliable:
+                    return CompassAccuracy.Unreliable;
+
+   ;             case MagnetometerAccuracy.Approximate:
+                    return CompassAccuracy.Approximate;
+
+   ;             default:
+                    return CompassAccuracy.Unknown;
+   ;         }
         }
     }
 }

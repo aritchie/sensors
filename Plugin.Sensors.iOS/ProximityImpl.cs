@@ -8,10 +8,7 @@ namespace Plugin.Sensors
 {
     public class ProximityImpl : IProximity
     {
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(true);
-        }
+        public bool IsAvailable => true;
 
 
         IObservable<bool> readOb;

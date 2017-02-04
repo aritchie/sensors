@@ -5,10 +5,17 @@
              x:Class="Sample.MainPage"
             Title="Samples">
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:AccelerometerViewModel x:Key="AccelerometerViewModel" />
+            <vm:GyroscopeViewModel x:Key="GyroscopeViewModel" />
+            <vm:MagnetometerViewModel x:Key="MagnetometerViewModel" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <TableView>
             <TableRoot>
-                <TableSection x:Name="accelSection" Title="Accelerometer">
+                <TableSection BindingContext="{StaticResource AccelerometerViewModel}" Title="Accelerometer">
 
                     <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
                     <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
@@ -16,14 +23,14 @@
                     <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
                 </TableSection>
 
-                <TableSection x:Name="gyroSection" Title="Gyroscope">
+                <TableSection BindingContext="{StaticResource GyroscopeViewModel}" Title="Gyroscope">
                     <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
                     <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
                     <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />
                     <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
                 </TableSection>
 
-                <TableSection x:Name="magnetSection" Title="Magnetometer">
+                <TableSection BindingContext="{StaticResource MagnetometerViewModel}" Title="Magnetometer">
                     <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
                     <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
                     <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />

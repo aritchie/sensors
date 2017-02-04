@@ -20,10 +20,7 @@ namespace Plugin.Sensors
         }
 
 
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(false);
-        }
+        public bool IsAvailable => false;
 
 
         public IObservable<CompassReading> WhenReadingTaken()

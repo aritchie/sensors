@@ -7,21 +7,19 @@ namespace Plugin.Sensors
 {
     public class CompassImpl : ICompass
     {
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(true);
-        }
+        public bool IsAvailable => CLLocationManager.HeadingAvailable;
 
 
-        IObservable<double> readOb;
-        public IObservable<double> WhenReadingTaken()
+        IObservable<CompassReading> readOb;
+        public IObservable<CompassReading> WhenReadingTaken()
         {
-            this.readOb = this.readOb ?? Observable.Create<double>(ob =>
+            this.readOb = this.readOb ?? Observable.Create<CompassReading>(ob =>
             {
                 var handler = new EventHandler<CLHeadingUpdatedEventArgs>((sender, args) =>
                 {
-                    // TODO: TrueHeading, MagneticHeading, Accuracy
-                    ob.OnNext(args.NewHeading.TrueHeading);
+                    var accuracy = this.FromNative(args.NewHeading.HeadingAccuracy);
+                    var read = new CompassReading(accuracy, args.NewHeading.MagneticHeading, args.NewHeading.TrueHeading);
+                    ob.OnNext(read);
                 });
                 var lm = new CLLocationManager
                 {
@@ -41,6 +39,12 @@ namespace Plugin.Sensors
             .RefCount();
 
             return this.readOb;
+        }
+
+
+        protected CompassAccuracy FromNative(double value)
+        {
+            return value < 0 ? CompassAccuracy.Unreliable : CompassAccuracy.High;
         }
     }
 }

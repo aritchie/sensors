@@ -18,12 +18,7 @@ namespace Plugin.Sensors
 
 
         public TimeSpan ReportInterval { get; set; }
-
-
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(this.accel != null);
-        }
+        public bool IsAvailable => this.accel != null;
 
 
         IObservable<MotionReading> readOb;
@@ -42,7 +37,10 @@ namespace Plugin.Sensors
                 this.accel.ReadingChanged += handler;
 
                 return () => this.accel.ReadingChanged -= handler;
-            });
+            })
+            .Publish()
+            .RefCount();
+
             return this.readOb;
         }
 

@@ -18,12 +18,7 @@ namespace Plugin.Sensors
 
 
         public TimeSpan ReportInterval { get; set; }
-
-
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(this.gyrometer != null);
-        }
+        public bool IsAvailable => this.gyrometer != null;
 
 
         IObservable<MotionReading> readOb;

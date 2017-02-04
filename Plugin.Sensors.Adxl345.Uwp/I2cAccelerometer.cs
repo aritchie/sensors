@@ -13,25 +13,6 @@ namespace Plugin.Sensors.Adxl345.Uwp
         I2cDevice device;
 
 
-        public override IObservable<bool> IsAvailable()
-        {
-            return Observable.Create<bool>(async ob =>
-            {
-                var result = false;
-                try
-                {
-                    await this.InitI2cDevice();
-                    result = true;
-                }
-                finally
-                {
-                }
-                ob.OnNext(result);
-                ob.OnCompleted();
-            });
-        }
-
-
         IObservable<MotionReading> readOb;
         public override IObservable<MotionReading> WhenReadingTaken()
         {

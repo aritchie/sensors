@@ -13,20 +13,20 @@ namespace Plugin.Sensors
     {
 		readonly SensorManager sensorManager;
 		readonly SensorType type;
-		protected bool IsSensorAvailable { get; }
+
 
         protected AbstractSensor(SensorType type)
         {
             this.type = type;
 			this.sensorManager = (SensorManager)Application.Context.GetSystemService(Context.SensorService);
-			this.IsSensorAvailable = this.sensorManager.GetSensorList(type).Any();
+			this.IsAvailable = this.sensorManager.GetSensorList(type).Any();
         }
 
 
         protected abstract T ToReading(SensorEvent e);
 
 
-		public virtual IObservable<bool> IsAvailable() => Observable.Return(this.IsSensorAvailable);
+		public bool IsAvailable { get; }
 		public TimeSpan ReportInterval { get; set; } = TimeSpan.FromMilliseconds(500);
 
 

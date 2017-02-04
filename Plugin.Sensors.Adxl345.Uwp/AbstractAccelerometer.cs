@@ -22,7 +22,7 @@ namespace Plugin.Sensors.Adxl345.Uwp
         public TimeSpan ReportInterval { get; set; } = TimeSpan.FromMilliseconds(100);
 
 
-        public abstract IObservable<bool> IsAvailable();
+        public bool IsAvailable => true;
         public abstract IObservable<MotionReading> WhenReadingTaken();
 
 

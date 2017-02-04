@@ -1,19 +1,42 @@
 ﻿using System;
+using System.Reactive.Linq;
+using Windows.Devices.Sensors;
+using Windows.Foundation;
+using Windows.UI.Composition;
 
 
 namespace Plugin.Sensors
 {
     public class AmbientLightImpl : IAmbientLight
     {
-        public IObservable<bool> IsAvailable()
+        readonly LightSensor sensor;
+
+
+        public AmbientLightImpl()
         {
-            throw new NotImplementedException();
+            this.sensor = LightSensor.GetDefault();
         }
 
 
+        public bool IsAvailable => this.sensor != null;
+
+
+        IObservable<double> readOb;
         public IObservable<double> WhenReadingTaken()
         {
-            throw new NotImplementedException();
+            this.readOb = this.readOb ?? Observable.Create<double>(ob =>
+            {
+                var handler = new TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>((sender, args) =>
+                    ob.OnNext(args.Reading.IlluminanceInLux)
+                );
+                //this.sensor.ReportInterval
+                this.sensor.ReadingChanged += handler;
+                return () => this.sensor.ReadingChanged -= handler;
+            })
+            .Publish()
+            .RefCount();
+
+            return this.readOb;
         }
     }
 }
