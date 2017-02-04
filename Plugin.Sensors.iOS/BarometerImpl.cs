@@ -29,7 +29,10 @@ namespace Plugin.Sensors
                     altimeter.StopRelativeAltitudeUpdates();
                     altimeter.Dispose();
                 };
-            });
+            })
+            .Publish()
+            .RefCount();
+
             return this.readOb;
         }
     }

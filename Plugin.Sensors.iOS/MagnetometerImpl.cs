@@ -5,7 +5,7 @@ using Foundation;
 
 namespace Plugin.Sensors
 {
-    public class MagnetometerImpl : AbstractSensor, IMagnetometer
+    public class MagnetometerImpl : AbstractMotionSensor, IMagnetometer
     {
         protected override bool IsSensorAvailable(CMMotionManager mgr)
         {

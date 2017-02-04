@@ -21,15 +21,17 @@ namespace Plugin.Sensors
             {
                 var scm = new CMStepCounter();
                 scm.StartStepCountingUpdates(NSOperationQueue.CurrentQueue, 10, (steps, timestamp, error) =>
-                {
-
-                });
+                    ob.OnNext((int)steps)
+                );
                 return () =>
                 {
                     scm.StopStepCountingUpdates();
                     scm.Dispose();
                 };
-            });
+            })
+            .Publish()
+            .RefCount();
+
             return this.stepOb;
         }
     }

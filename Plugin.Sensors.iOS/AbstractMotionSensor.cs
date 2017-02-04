@@ -5,7 +5,7 @@ using CoreMotion;
 
 namespace Plugin.Sensors
 {
-    public abstract class AbstractSensor
+    public abstract class AbstractMotionSensor
     {
         readonly CMMotionManager motionManager = new CMMotionManager();
 

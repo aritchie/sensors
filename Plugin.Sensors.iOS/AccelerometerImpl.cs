@@ -6,7 +6,7 @@ using Foundation;
 
 namespace Plugin.Sensors
 {
-    public class AccelerometerImpl : AbstractSensor, IAccelerometer
+    public class AccelerometerImpl : AbstractMotionSensor, IAccelerometer
     {
         protected override bool IsSensorAvailable(CMMotionManager mgr)
         {
@@ -31,15 +31,6 @@ namespace Plugin.Sensors
         protected override void SetReportInterval(CMMotionManager mgr, TimeSpan timeSpan)
         {
             mgr.AccelerometerUpdateInterval = timeSpan.TotalSeconds;
-        }
-
-
-        public IObservable<object> WhenShaken()
-        {
-            return Observable.Create<object>(ob =>
-            {
-                return () => { };
-            });
         }
     }
 }

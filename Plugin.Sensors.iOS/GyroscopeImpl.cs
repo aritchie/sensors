@@ -5,7 +5,7 @@ using Foundation;
 
 namespace Plugin.Sensors
 {
-    public class GyroscopeImpl : AbstractSensor, IGyroscope
+    public class GyroscopeImpl : AbstractMotionSensor, IGyroscope
     {
         protected override bool IsSensorAvailable(CMMotionManager mgr)
         {

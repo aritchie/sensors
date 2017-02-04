@@ -36,7 +36,10 @@ namespace Plugin.Sensors
                     lm.StopUpdatingHeading();
                     lm.UpdatedHeading -= handler;
                 };
-            });
+            })
+            .Publish()
+            .RefCount();
+
             return this.readOb;
         }
     }
