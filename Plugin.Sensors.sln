@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26127.0
+VisualStudioVersion = 15.0.26127.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Sensors", "Plugin.Sensors\Plugin.Sensors.csproj", "{150E72BD-08E5-48B6-A7DE-010EC70B4545}"
 EndProject
@@ -423,7 +423,6 @@ Global
 		{23E16784-23E8-4546-A31C-FBCE22ECA17F}.Debug|x86.Deploy.0 = Debug|Any CPU
 		{23E16784-23E8-4546-A31C-FBCE22ECA17F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23E16784-23E8-4546-A31C-FBCE22ECA17F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{23E16784-23E8-4546-A31C-FBCE22ECA17F}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{23E16784-23E8-4546-A31C-FBCE22ECA17F}.Release|ARM.ActiveCfg = Release|Any CPU
 		{23E16784-23E8-4546-A31C-FBCE22ECA17F}.Release|ARM.Build.0 = Release|Any CPU
 		{23E16784-23E8-4546-A31C-FBCE22ECA17F}.Release|ARM.Deploy.0 = Release|Any CPU
@@ -536,6 +535,7 @@ Global
 		{D8AD660F-2E4A-4604-A181-C26D6B78AA45}.Debug|x86.Build.0 = Debug|x86
 		{D8AD660F-2E4A-4604-A181-C26D6B78AA45}.Debug|x86.Deploy.0 = Debug|x86
 		{D8AD660F-2E4A-4604-A181-C26D6B78AA45}.Release|Any CPU.ActiveCfg = Release|x86
+		{D8AD660F-2E4A-4604-A181-C26D6B78AA45}.Release|Any CPU.Build.0 = Release|x86
 		{D8AD660F-2E4A-4604-A181-C26D6B78AA45}.Release|ARM.ActiveCfg = Release|ARM
 		{D8AD660F-2E4A-4604-A181-C26D6B78AA45}.Release|ARM.Build.0 = Release|ARM
 		{D8AD660F-2E4A-4604-A181-C26D6B78AA45}.Release|ARM.Deploy.0 = Release|ARM
@@ -572,6 +572,7 @@ Global
 		{A76015FB-5B2B-40D5-8BDB-50D0E805EE85}.Debug|x64.ActiveCfg = Debug|iPhone
 		{A76015FB-5B2B-40D5-8BDB-50D0E805EE85}.Debug|x86.ActiveCfg = Debug|iPhone
 		{A76015FB-5B2B-40D5-8BDB-50D0E805EE85}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{A76015FB-5B2B-40D5-8BDB-50D0E805EE85}.Release|Any CPU.Build.0 = Release|iPhone
 		{A76015FB-5B2B-40D5-8BDB-50D0E805EE85}.Release|ARM.ActiveCfg = Release|iPhone
 		{A76015FB-5B2B-40D5-8BDB-50D0E805EE85}.Release|iPhone.ActiveCfg = Release|iPhone
 		{A76015FB-5B2B-40D5-8BDB-50D0E805EE85}.Release|iPhone.Build.0 = Release|iPhone

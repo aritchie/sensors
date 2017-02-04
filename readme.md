@@ -16,7 +16,7 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 * Windows Core IoT (ADXL 345 Accelerometer)
 
 
-## FEATURES
+## SUPPORTED SENSORS
 
 * Accelerometer
 * Ambient Light

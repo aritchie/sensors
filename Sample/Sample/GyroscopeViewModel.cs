@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Linq;
 using Plugin.Sensors;
 using ReactiveUI;
 
@@ -26,7 +27,7 @@ namespace Sample
                     this.sensorSub = null;
                 }
             },
-            CrossSensors.Gyroscope.IsAvailable());
+            Observable.Return(CrossSensors.Gyroscope.IsAvailable));
         }
     }
 }

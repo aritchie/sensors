@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <metadata>
+    <metadata minClientVersion="2.8.1">
         <id>Plugin.Sensors</id>
         <version>1.0.0</version>
         <title>ACR Reactive Sensors Plugin for Xamarin and Windows</title>
@@ -41,9 +41,19 @@ Supported Platforms
                 <dependency id="rx-main" version="[2.2.5, 3)" />
             </group>
         </dependencies>
-        <releaseNotes>
-1.0
-Initial Release
-        </releaseNotes>
+        <releaseNotes>https://github.com/aritchie/sensors/blob/master/docs/CHANGELOG.md</releaseNotes>
     </metadata>
+    <files>
+        <!-- PCL -->
+        <file src="..\Plugin.Sensors\bin\Release\Plugin.Sensors.*" target="lib\portable-win+net45+wp8+win8+wpa81" />
+
+        <!-- android -->
+        <file src="..\Plugin.Sensors.Android\bin\Release\Plugin.Sensors.*" target="lib\MonoAndroid10" />
+
+        <!-- ios -->
+        <file src="..\Plugin.Sensors.iOS\bin\Release\Plugin.Sensors.*" target="lib\Xamarin.iOS10" />
+
+        <!-- uwp -->
+        <file src="..\Plugin.Sensors.Uwp\bin\Release\Plugin.Sensors.*" target="lib\uap10.0" />
+    </files>
 </package>
