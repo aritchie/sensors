@@ -22,11 +22,12 @@ Supported Platforms
 * Android 4.3+
 * iOS 8+
 * Windows
+* WinCore IoT (ADXL 345)
         </description>
         <authors>Allan Ritchie</authors>
         <owners>Allan Ritchie</owners>
         <iconUrl>https://github.com/aritchie/sensors/raw/master/icon.png</iconUrl>
-        <licenseUrl>https://github.com/aritchie/sensors/LICENSE.md</licenseUrl>
+        <licenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</licenseUrl>
         <projectUrl>https://github.com/aritchie/sensors</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>ios android xamarin rx reactive motion sensors</tags>
@@ -41,7 +42,7 @@ Supported Platforms
                 <dependency id="rx-main" version="[2.2.5, 3)" />
             </group>
         </dependencies>
-        <releaseNotes>https://github.com/aritchie/sensors/blob/master/docs/CHANGELOG.md</releaseNotes>
+        <releaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</releaseNotes>
     </metadata>
     <files>
         <!-- PCL -->
