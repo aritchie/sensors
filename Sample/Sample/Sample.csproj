@@ -35,16 +35,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="MagnetometerViewModel.cs" />
-    <Compile Include="GyroscopeViewModel.cs" />
-    <Compile Include="AccelerometerViewModel.cs" />
+    <Compile Include="ISensorViewModel.cs" />
+    <Compile Include="SensorViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AbstractMotionViewModel.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

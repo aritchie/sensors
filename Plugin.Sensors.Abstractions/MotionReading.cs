@@ -16,5 +16,8 @@ namespace Plugin.Sensors
         public double X { get; }
         public double Y { get; }
         public double Z { get; }
+
+
+        public override string ToString() => $"X: {this.X} - Y: {this.Y} - Z: {this.Z}";
     }
 }

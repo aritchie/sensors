@@ -5,38 +5,51 @@
              x:Class="Sample.MainPage"
             Title="Samples">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <vm:AccelerometerViewModel x:Key="AccelerometerViewModel" />
-            <vm:GyroscopeViewModel x:Key="GyroscopeViewModel" />
-            <vm:MagnetometerViewModel x:Key="MagnetometerViewModel" />
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    <ContentPage.BindingContext>
+        <vm:MainViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <TableView>
-            <TableRoot>
-                <TableSection BindingContext="{StaticResource AccelerometerViewModel}" Title="Accelerometer">
+        <ListView ItemsSource="{Binding Sensors}" RowHeight="80">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="9*" />
+                                    <ColumnDefinition Width="1*" />
+                                </Grid.ColumnDefinitions>
 
-                    <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
-                    <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
-                    <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />
-                    <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
-                </TableSection>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                <TableSection BindingContext="{StaticResource GyroscopeViewModel}" Title="Gyroscope">
-                    <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
-                    <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
-                    <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />
-                    <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
-                </TableSection>
-
-                <TableSection BindingContext="{StaticResource MagnetometerViewModel}" Title="Magnetometer">
-                    <TextCell Text="X-Axis" Detail="{Binding XAxis}" />
-                    <TextCell Text="Y-Axis" Detail="{Binding YAxis}" />
-                    <TextCell Text="Z-Axis" Detail="{Binding ZAxis}" />
-                    <TextCell Text="{Binding ToggleText}" Command="{Binding Toggle}" />
-                </TableSection>
-            </TableRoot>
-        </TableView>
+                                <Label Text="{Binding Title}" Style="{StaticResource TitleStyle}" Grid.Column="0" Grid.Row="0" />
+                                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
+                                    <Label Text="{Binding ValueName, StringFormat='{0} : '}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Value}" />
+                                </StackLayout>
+                                <Button Text="{Binding ToggleText}"  Command="{Binding Toggle}" Grid.Column="1" Grid.RowSpan="2">
+                                    <Button.Style>
+                                        <Style.Triggers>
+                                            <Trigger TargetType="Button" Property="IsEnabled" Value="True">
+                                                <Setter Property="BackgroundColor" Value="Red" />
+                                                <Setter Property="TextColor" Value="White" />
+                                            </Trigger>
+                                            <Trigger TargetType="Button" Property="IsEnabled" Value="True">
+                                                <Setter Property="BackgroundColor" Value="Blue" />
+                                                <Setter Property="TextColor" Value="White" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Button.Style>
+                                </Button>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

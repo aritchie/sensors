@@ -16,5 +16,8 @@ namespace Plugin.Sensors
         public CompassAccuracy Accuracy { get; }
         public double MagneticHeading { get; }
         public double TrueHeading { get; }
+
+
+        public override string ToString() => $"Magnetic: {this.MagneticHeading} - True: {this.TrueHeading} - Accuracy: {this.Accuracy}";
     }
 }
