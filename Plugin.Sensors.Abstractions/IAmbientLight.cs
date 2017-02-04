@@ -3,7 +3,7 @@
 
 namespace Plugin.Sensors
 {
-    public interface IAmbientLight
+    public interface IAmbientLight : ISensor<int>
     {
     }
 }

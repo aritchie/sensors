@@ -2,9 +2,7 @@
 
 namespace Plugin.Sensors
 {
-    public interface IPedometer
+    public interface IPedometer : ISensor<int>
     {
-        IObservable<bool> IsAvailable();
-        IObservable<int> WhenReadingTaken();
     }
 }

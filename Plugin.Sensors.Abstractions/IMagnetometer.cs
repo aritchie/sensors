@@ -3,11 +3,8 @@
 
 namespace Plugin.Sensors
 {
-    public interface IMagnetometer
+    public interface IMagnetometer : IMotionSensor
     {
         // has uncalibrated version
-        TimeSpan ReportInterval { get; set; }
-        IObservable<bool> IsAvailable();
-        IObservable<MotionReading> WhenReadingTaken();
     }
 }

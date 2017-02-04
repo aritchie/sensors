@@ -3,7 +3,7 @@
 
 namespace Plugin.Sensors
 {
-    public interface IBarometer : ISensor<double>
+    public interface IProximity : ISensor<bool>
     {
     }
 }

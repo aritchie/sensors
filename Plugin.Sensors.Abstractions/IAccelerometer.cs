@@ -3,11 +3,9 @@
 
 namespace Plugin.Sensors
 {
-    public interface IAccelerometer
+    public interface IAccelerometer : IMotionSensor
     {
-        TimeSpan ReportInterval { get; set; }
-        IObservable<bool> IsAvailable();
-        IObservable<MotionReading> WhenReadingTaken();
+
         //IObservable<object> WhenShaken();
     }
 }

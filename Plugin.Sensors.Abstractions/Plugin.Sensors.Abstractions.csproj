@@ -47,7 +47,10 @@
     <Compile Include="ICompass.cs" />
     <Compile Include="IGyroscope.cs" />
     <Compile Include="IMagnetometer.cs" />
+    <Compile Include="IMotionSensor.cs" />
     <Compile Include="IPedometer.cs" />
+    <Compile Include="IProximity.cs" />
+    <Compile Include="ISensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MotionReading.cs" />
   </ItemGroup>

@@ -3,9 +3,7 @@
 
 namespace Plugin.Sensors
 {
-    public interface ICompass
+    public interface ICompass : ISensor<CompassReading>
     {
-        IObservable<bool> IsAvailable();
-        IObservable<CompassReading> WhenReadingTaken();
     }
 }
