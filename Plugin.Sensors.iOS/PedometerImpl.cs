@@ -8,10 +8,7 @@ namespace Plugin.Sensors
 {
     public class PedometerImpl : IPedometer
     {
-        public IObservable<bool> IsAvailable()
-        {
-            return Observable.Return(CMStepCounter.IsStepCountingAvailable);
-        }
+        public bool IsAvailable => CMStepCounter.IsStepCountingAvailable;
 
 
         IObservable<int> stepOb;
