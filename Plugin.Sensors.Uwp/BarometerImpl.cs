@@ -1,41 +1,42 @@
 ﻿using System;
+using System.Reactive.Linq;
+using Windows.Devices.Sensors;
+using Windows.Foundation;
 
 
 namespace Plugin.Sensors
 {
     public class BarometerImpl : IBarometer
     {
+        readonly Barometer barometer;
+
+
         public BarometerImpl()
         {
-
+            this.barometer = Barometer.GetDefault();
         }
 
 
         public IObservable<bool> IsAvailable()
         {
-            throw new NotImplementedException();
+            return Observable.Return(this.barometer != null);
         }
 
 
+        IObservable<double> readOb;
         public IObservable<double> WhenReadingTaken()
         {
-            throw new NotImplementedException();
+            this.readOb = this.readOb ?? Observable.Create<double>(ob =>
+            {
+                var handler = new TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>((sender, args) =>
+                {
+
+                });
+                //this.barometer.ReportInterval =
+                this.barometer.ReadingChanged += handler;
+                return () => this.barometer.ReadingChanged -= handler;
+            });
+            return this.readOb;
         }
     }
 }
-/*
- Barometer barometer = Barometer.GetDefault();
-BarometerReading reading = barometer.GetCurrentReading();
-
-double pressure = reading.StationPressureInHectopascals;
-barometer.ReadingChanged += ...
-
-Altimeter altimeter = Altimeter.GetDefault();
-AltimeterReading altimeterReading = altimeter.GetCurrentReading();
-
-double altitudeChange = altimeterReading.AltitudeChangeInMeters;
-altimeter.ReadingChanged += ...
-
-//Selecting a report interval
-mySensor.ReportInterval = 500;
-     */

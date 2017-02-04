@@ -108,11 +108,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccelerometerImpl.cs" />
+    <Compile Include="AmbientLightImpl.cs" />
     <Compile Include="BarometerImpl.cs" />
     <Compile Include="CompassImpl.cs" />
     <Compile Include="GyroscopeImpl.cs" />
     <Compile Include="MagnetometerImpl.cs" />
+    <Compile Include="PedometerImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProximityImpl.cs" />
     <EmbeddedResource Include="Properties\Plugin.Sensors.rd.xml" />
   </ItemGroup>
   <ItemGroup>
