@@ -25,7 +25,5 @@
     <files>
         <!-- uwp -->
         <file src="..\Plugin.Sensors.Adxl345.Uwp\bin\Release\Plugin.Sensors.Adxl345.Uwp.*" target="lib\uap10.0" />
-        <file src="..\Plugin.Sensors.Adxl345.Uwp\bin\Release\Properties\*.rd.xml" target="lib\uap10.0\Plugin.Sensors.Adxl345.Uwp\Properties" />
-        <file src="..\Plugin.Sensors.Adxl345.Uwp\bin\Release\Plugin.Sensors.Adxl345.Uwp\*.*" target="lib\uap10.0\Plugin.Sensors.Adxl345.Uwp" />
     </files>
 </package>
