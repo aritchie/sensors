@@ -12,9 +12,9 @@ namespace Plugin.Sensors
         }
 
 
-        public IObservable<int> WhenReadingTaken()
+        public IObservable<double> WhenReadingTaken()
         {
-            return Observable.Empty<int>();
+            return Observable.Empty<double>();
         }
     }
 }
