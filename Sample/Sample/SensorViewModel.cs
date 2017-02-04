@@ -18,8 +18,7 @@ namespace Sample
         {
             this.Title = title ?? sensor.GetType().Name.Replace("Impl", String.Empty);
             this.ValueName = valueName;
-            if (!sensor.IsAvailable)
-                this.ToggleText = "Sensor Not Available";
+            this.ToggleText = sensor.IsAvailable ? "Start" : "Sensor Not Available";
 
             this.Toggle = ReactiveCommand.Create(() =>
             {
@@ -44,7 +43,7 @@ namespace Sample
         public ICommand Toggle { get; }
         public string ValueName { get; }
         [Reactive] public string Value { get; private set; }
-        [Reactive] public string ToggleText { get; private set; } = "Start";
+        [Reactive] public string ToggleText { get; private set; }
 
 
         protected virtual void Update(TReading reading)

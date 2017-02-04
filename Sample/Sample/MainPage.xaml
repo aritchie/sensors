@@ -17,8 +17,8 @@
                         <ViewCell.View>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="9*" />
-                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="7*" />
+                                    <ColumnDefinition Width="3*" />
                                 </Grid.ColumnDefinitions>
 
                                 <Grid.RowDefinitions>
@@ -26,24 +26,22 @@
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
 
-                                <Label Text="{Binding Title}" Style="{StaticResource TitleStyle}" Grid.Column="0" Grid.Row="0" />
+                                <Label Text="{Binding Title}" Grid.Column="0" Grid.Row="0" />
                                 <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="1">
                                     <Label Text="{Binding ValueName, StringFormat='{0} : '}" FontAttributes="Bold" />
-                                    <Label Text="{Binding Value}" />
+                                    <Label Text="{Binding Value}" FontAttributes="Italic" />
                                 </StackLayout>
-                                <Button Text="{Binding ToggleText}"  Command="{Binding Toggle}" Grid.Column="1" Grid.RowSpan="2">
-                                    <Button.Style>
-                                        <Style.Triggers>
-                                            <Trigger TargetType="Button" Property="IsEnabled" Value="True">
-                                                <Setter Property="BackgroundColor" Value="Red" />
-                                                <Setter Property="TextColor" Value="White" />
-                                            </Trigger>
-                                            <Trigger TargetType="Button" Property="IsEnabled" Value="True">
-                                                <Setter Property="BackgroundColor" Value="Blue" />
-                                                <Setter Property="TextColor" Value="White" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Button.Style>
+                                <Button Text="{Binding ToggleText}" Command="{Binding Toggle}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+                                    <Button.Triggers>
+                                        <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                                            <Setter Property="BackgroundColor" Value="Transparent" />
+                                            <Setter Property="BorderColor" Value="Transparent" />
+                                        </Trigger>
+                                        <Trigger TargetType="Button" Property="IsEnabled" Value="True">
+                                            <Setter Property="BackgroundColor" Value="Blue" />
+                                            <Setter Property="TextColor" Value="White" />
+                                        </Trigger>
+                                    </Button.Triggers>
                                 </Button>
                             </Grid>
                         </ViewCell.View>
