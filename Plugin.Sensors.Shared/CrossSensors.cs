@@ -5,45 +5,6 @@ namespace Plugin.Sensors
 {
     public static class CrossSensors
     {
-        static IGyroscope customGyro;
-        public static IGyroscope Gyroscope
-        {
-            get
-            {
-#if PCL
-                if (customGyro == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customGyro;
-#else
-                customGyro = customGyro ?? new GyroscopeImpl();
-                return customGyro;
-#endif
-            }
-            set { customGyro = value; }
-        }
-
-
-        static IMagnetometer customMagnetometer;
-
-        public static IMagnetometer Magnetometer
-        {
-            get
-            {
-#if PCL
-                if (customMagnetometer == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customMagnetometer;
-#else
-                customMagnetometer = customMagnetometer ?? new MagnetometerImpl();
-                return customMagnetometer;
-#endif
-            }
-            set { customMagnetometer = value; }
-        }
-
-
         static IAccelerometer customAccel;
 
         public static IAccelerometer Accelerometer
@@ -63,6 +24,25 @@ namespace Plugin.Sensors
             set { customAccel = value; }
         }
 
+
+        static IAmbientLight customLight;
+
+        public static IAmbientLight AmbientLight
+        {
+            get
+            {
+#if PCL
+                if (customLight == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+
+                return customLight;
+#else
+                customLight = customLight ?? new AmbientLightImpl();
+                return customLight;
+#endif
+            }
+            set { customLight = value; }
+        }
 
 
         static IBarometer customBaro;
@@ -104,6 +84,46 @@ namespace Plugin.Sensors
         }
 
 
+        static IGyroscope customGyro;
+        public static IGyroscope Gyroscope
+        {
+            get
+            {
+#if PCL
+                if (customGyro == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+
+                return customGyro;
+#else
+                customGyro = customGyro ?? new GyroscopeImpl();
+                return customGyro;
+#endif
+            }
+            set { customGyro = value; }
+        }
+
+
+        static IMagnetometer customMagnetometer;
+
+        public static IMagnetometer Magnetometer
+        {
+            get
+            {
+#if PCL
+                if (customMagnetometer == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+
+                return customMagnetometer;
+#else
+                customMagnetometer = customMagnetometer ?? new MagnetometerImpl();
+                return customMagnetometer;
+#endif
+            }
+            set { customMagnetometer = value; }
+        }
+
+
+
         static IPedometer customPedometer;
         public static IPedometer Pedometer
         {
@@ -120,6 +140,25 @@ namespace Plugin.Sensors
 #endif
             }
             set { customPedometer = value; }
+        }
+
+
+        static IProximity customProximity;
+        public static IProximity Proximity
+        {
+            get
+            {
+#if PCL
+                if (customProximity == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+
+                return customProximity;
+#else
+                customProximity = customProximity ?? new ProximityImpl();
+                return customProximity;
+#endif
+            }
+            set { customProximity = value; }
         }
     }
 }
