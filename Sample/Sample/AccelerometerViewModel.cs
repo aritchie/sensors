@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Linq;
 using Plugin.Sensors;
 using ReactiveUI;
 
@@ -25,8 +26,7 @@ namespace Sample
                     this.sensorSub.Dispose();
                     this.sensorSub = null;
                 }
-            },
-            CrossSensors.Accelerometer.IsAvailable());
+            }, Observable.Return(CrossSensors.Accelerometer.IsAvailable));
         }
     }
 }
