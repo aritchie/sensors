@@ -5,7 +5,7 @@ namespace Plugin.Sensors
 {
     public interface ISensor<out T>
     {
-        IObservable<bool> IsAvailable();
+        bool IsAvailable { get; }
         IObservable<T> WhenReadingTaken();
     }
 }
