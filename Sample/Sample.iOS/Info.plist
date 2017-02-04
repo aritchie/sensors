@@ -50,5 +50,7 @@
 	<string>Sensors</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Using some motion</string>
 </dict>
 </plist>

@@ -17,7 +17,7 @@ namespace Plugin.Sensors
             this.stepOb = this.stepOb ?? Observable.Create<int>(ob =>
             {
                 var scm = new CMStepCounter();
-                scm.StartStepCountingUpdates(NSOperationQueue.CurrentQueue, 10, (steps, timestamp, error) =>
+                scm.StartStepCountingUpdates(NSOperationQueue.CurrentQueue, 1, (steps, timestamp, error) =>
                     ob.OnNext((int)steps)
                 );
                 return () =>
