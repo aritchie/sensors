@@ -4,7 +4,7 @@
         <id>Plugin.Sensors.Adxl345.Uwp</id>
         <version>1.0.0</version>
         <title>ACR Reactive Accelerometer ADXL345 Plugin for Windows Core IoT</title>
-        <summary>ACR Reactive Accelerometer ADXL345 Plugin for Windows Core IoT</summary>
+        <summary>ACR Reactive Accelerometer </summary>
         <description>ACR Reactive Accelerometer ADXL345 Plugin for Windows Core IoT</description>
         <authors>Allan Ritchie</authors>
         <owners>Allan Ritchie</owners>

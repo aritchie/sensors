@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Windows.Devices.I2c;
 
 
-namespace Plugin.Sensors.Adxl345.Uwp
+namespace Plugin.Sensors.Adxl345
 {
     // https://developer.microsoft.com/en-us/windows/iot/samples/i2caccelerometer
     public class I2cAccelerometer : AbstractAccelerometer

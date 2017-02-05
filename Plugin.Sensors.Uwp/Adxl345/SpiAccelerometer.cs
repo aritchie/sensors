@@ -5,7 +5,7 @@ using Windows.Devices.Enumeration;
 using Windows.Devices.Spi;
 
 
-namespace Plugin.Sensors.Adxl345.Uwp
+namespace Plugin.Sensors.Adxl345
 {
     // https://developer.microsoft.com/en-us/windows/iot/samples/spiaccelerometer
     public class SpiAccelerometer : AbstractAccelerometer

@@ -108,6 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccelerometerImpl.cs" />
+    <Compile Include="Adxl345\AbstractAccelerometer.cs" />
+    <Compile Include="Adxl345\I2cAccelerometer.cs" />
+    <Compile Include="Adxl345\SpiAccelerometer.cs" />
     <Compile Include="AmbientLightImpl.cs" />
     <Compile Include="BarometerImpl.cs" />
     <Compile Include="CompassImpl.cs" />

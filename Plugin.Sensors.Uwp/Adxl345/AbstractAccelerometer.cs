@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Plugin.Sensors.Adxl345.Uwp
+namespace Plugin.Sensors.Adxl345
 {
     public abstract class AbstractAccelerometer : IAccelerometer
     {

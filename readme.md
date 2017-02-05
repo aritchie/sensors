@@ -2,7 +2,6 @@
 Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Windows UWP
 
 [![NuGet](https://img.shields.io/nuget/v/Plugin.Sensors.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.Sensors/)
-[![Downloads](https://www.nuget.org/packages/Plugin.Sensors")](https://img.shields.io/nuget/dt/Plugin.Sensors.svg)
 
 [Change Log - Feb 1, 2017](changelog.md)
 
@@ -44,6 +43,19 @@ If you plan to use the pedometer on iOS, you need to add the following to your I
 	<string>Using some motion</string>
 </dict>
 ```
+
+## UWP Core IoT
+
+There are two providers in the UWP library to support an ADXL345 accelerometer sensor via I2C or SPI
+To use them:
+
+```csharp
+CrossSensors.Accelerometer = new Adxl345.I2cAccelerometer();
+
+// or
+CrossSensors.Accelerometer = new Adxl345.SpiAccelerometer();
+```
+
 
 ## HOW TO USE BASICS
 
