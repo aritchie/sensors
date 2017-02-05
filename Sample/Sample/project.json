@@ -1,0 +1,14 @@
+﻿{
+  "supports": {},
+  "dependencies": {
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "NETStandard.Library": "1.6.1",
+    "Xamarin.Forms": "2.3.3.180",
+    "ReactiveUI.Fody": "2.0.65"
+  },
+  "frameworks": {
+    "netstandard1.3": {
+        "imports": "portable-win+net45+wp8+win8+wpa81"
+    }
+  }
+}
