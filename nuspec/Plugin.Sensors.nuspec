@@ -19,6 +19,7 @@ Available Sensors
 * Proximity
 
 Supported Platforms
+* NET Standard 1.0
 * Android 4.3+
 * iOS 8+
 * Windows
@@ -33,13 +34,13 @@ Supported Platforms
         <tags>ios android xamarin rx reactive motion sensors</tags>
         <dependencies>
             <group targetFramework="Xamarin.iOS10">
-                <dependency id="rx-main" version="[2.2.5, 3)" />
+                <dependency id="System.Reactive" version="[3.1.1, 4)" />
             </group>
             <group targetFramework="MonoAndroid10">
-                <dependency id="rx-main" version="[2.2.5, 3)" />
+                <dependency id="System.Reactive" version="[3.1.1, 4)" />
             </group>
             <group targetFramework="uap10.0">
-                <dependency id="rx-main" version="[2.2.5, 3)" />
+                <dependency id="System.Reactive" version="[3.1.1, 4)" />>
             </group>
         </dependencies>
         <releaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</releaseNotes>

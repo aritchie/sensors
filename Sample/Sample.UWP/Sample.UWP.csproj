@@ -160,10 +160,6 @@
       <Project>{0c85be7a-a717-4c05-8e06-a4709ca55431}</Project>
       <Name>Plugin.Sensors.Uwp</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sample\Sample.csproj">
-      <Project>{251e566b-2d62-4575-8439-f6faec040723}</Project>
-      <Name>Sample</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
