@@ -3,15 +3,16 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 
 [![NuGet](https://img.shields.io/nuget/v/Plugin.Sensors.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.Sensors/)
 
-[Change Log - Feb 1, 2017](changelog.md)
+[Change Log - Feb 12, 2017](changelog.md)
 
 
 ## PLATFORMS
+* PCL Profile 259 (use v1.0)
+* NET Standard (use v2.0)
 
 * Android 4.3+
 * iOS 7+
 * Windows UWP 
-* PCL Profile 259
 * Windows Core IoT (ADXL 345 Accelerometer)
 
 
