@@ -2,14 +2,14 @@
 using System.Reactive.Linq;
 using System.Windows.Input;
 using Plugin.Sensors;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
 using Xamarin.Forms;
+using PropertyChanged;
 
 
 namespace Sample
 {
-    public class SensorViewModel<TReading> : ReactiveObject, ISensorViewModel
+    [ImplementPropertyChanged]
+    public class SensorViewModel<TReading> : ISensorViewModel
     {
         IDisposable sensorSub;
 
@@ -20,8 +20,11 @@ namespace Sample
             this.ValueName = valueName;
             this.ToggleText = sensor.IsAvailable ? "Start" : "Sensor Not Available";
 
-            this.Toggle = ReactiveCommand.Create(() =>
+            this.Toggle = new Command(() =>
             {
+                if (!sensor.IsAvailable)
+                    return;
+
                 if (this.sensorSub == null)
                 {
                     this.ToggleText = "Stop";
@@ -35,15 +38,15 @@ namespace Sample
                     this.sensorSub.Dispose();
                     this.sensorSub = null;
                 }
-            }, Observable.Return(sensor.IsAvailable));
+            });
         }
 
 
         public string Title { get; }
         public ICommand Toggle { get; }
         public string ValueName { get; }
-        [Reactive] public string Value { get; private set; }
-        [Reactive] public string ToggleText { get; private set; }
+        public string Value { get; set; }
+        public string ToggleText { get; set; }
 
 
         protected virtual void Update(TReading reading)
