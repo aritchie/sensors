@@ -9,7 +9,6 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 ## PLATFORMS
 * PCL Profile 259 (use v1.0)
 * NET Standard (use v2.0)
-
 * Android 4.3+
 * iOS 7+
 * Windows UWP 
