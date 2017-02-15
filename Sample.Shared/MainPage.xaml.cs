@@ -9,6 +9,7 @@ namespace Sample
         public MainPage()
         {
             InitializeComponent();
+            this.BindingContext = new MainViewModel();
         }
     }
 }
