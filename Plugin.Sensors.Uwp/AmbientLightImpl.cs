@@ -29,7 +29,6 @@ namespace Plugin.Sensors
                 var handler = new TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>((sender, args) =>
                     ob.OnNext(args.Reading.IlluminanceInLux)
                 );
-                //this.sensor.ReportInterval
                 this.sensor.ReadingChanged += handler;
                 return () => this.sensor.ReadingChanged -= handler;
             })

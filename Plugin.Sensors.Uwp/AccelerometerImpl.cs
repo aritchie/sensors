@@ -17,7 +17,6 @@ namespace Plugin.Sensors
         }
 
 
-        public TimeSpan ReportInterval { get; set; }
         public bool IsAvailable => this.accel != null;
 
 
@@ -33,7 +32,6 @@ namespace Plugin.Sensors
                         args.Reading.AccelerationZ
                     ))
                 );
-                //this.accel.ReportInterval =
                 this.accel.ReadingChanged += handler;
 
                 return () => this.accel.ReadingChanged -= handler;

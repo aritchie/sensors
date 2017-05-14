@@ -17,7 +17,6 @@ namespace Plugin.Sensors
         }
 
 
-        public TimeSpan ReportInterval { get; set; }
         public bool IsAvailable => this.gyrometer != null;
 
 
@@ -33,7 +32,6 @@ namespace Plugin.Sensors
                         args.Reading.AngularVelocityZ
                     ))
                 );
-                //this.gyrometer.ReportInterval = this.ReportInterval.TotalSeconds;
                 this.gyrometer.ReadingChanged += handler;
 
                 return () => this.gyrometer.ReadingChanged -= handler;

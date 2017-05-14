@@ -26,10 +26,8 @@ namespace Plugin.Sensors
             this.readOb = this.readOb ?? Observable.Create<double>(ob =>
             {
                 var handler = new TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>((sender, args) =>
-                {
-
-                });
-                //this.barometer.ReportInterval =
+                    ob.OnNext(args.Reading.StationPressureInHectopascals)
+                );
                 this.barometer.ReadingChanged += handler;
                 return () => this.barometer.ReadingChanged -= handler;
             })

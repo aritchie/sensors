@@ -31,7 +31,6 @@ namespace Plugin.Sensors
                     var read = new CompassReading(accuracy, args.Reading.HeadingMagneticNorth, args.Reading.HeadingTrueNorth ?? 0);
                     ob.OnNext(read);
                 });
-                //this.compass.ReportInterval = 0;
                 this.compass.ReadingChanged += handler;
 
                 return () => this.compass.ReadingChanged -= handler;

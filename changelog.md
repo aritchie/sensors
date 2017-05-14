@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2.0.1
+* [fix][uwp] barometer was not reporting
+* [fix][uwp]
+
 ## 2.0
 * [netstandard] this release only changes the bait/switch to netstandard.  If you need PCL, use 1.0
 

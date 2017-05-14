@@ -27,8 +27,6 @@ namespace Plugin.Sensors
 
 
 		public bool IsAvailable { get; }
-		public TimeSpan ReportInterval { get; set; } = TimeSpan.FromMilliseconds(500);
-
 
 
         IObservable<T> readOb;
@@ -37,9 +35,9 @@ namespace Plugin.Sensors
             this.readOb = this.readOb ?? Observable.Create<T>(ob =>
             {
 				var mgr = new AcrSensorManager(this.sensorManager);
-                var delay = this.ToSensorDelay(this.ReportInterval);
+                //var delay = this.ToSensorDelay(this.ReportInterval);
 
-                mgr.Start(this.type, delay, e =>
+                mgr.Start(this.type, SensorDelay.Fastest, e =>
                 {
                     var reading = this.ToReading(e);
                     ob.OnNext(reading);
@@ -53,18 +51,18 @@ namespace Plugin.Sensors
         }
 
 
-        protected SensorDelay ToSensorDelay(TimeSpan timeSpan)
-        {
-            if (timeSpan.TotalMilliseconds <= 100)
-                return SensorDelay.Fastest;
+        //protected SensorDelay ToSensorDelay(TimeSpan timeSpan)
+        //{
+        //    if (timeSpan.TotalMilliseconds <= 100)
+        //        return SensorDelay.Fastest;
 
-            if (timeSpan.TotalMilliseconds <= 250)
-                return SensorDelay.Game;
+        //    if (timeSpan.TotalMilliseconds <= 250)
+        //        return SensorDelay.Game;
 
-            if (timeSpan.TotalMilliseconds <= 500)
-                return SensorDelay.Ui;
+        //    if (timeSpan.TotalMilliseconds <= 500)
+        //        return SensorDelay.Ui;
 
-           return SensorDelay.Normal;
-        }
+        //   return SensorDelay.Normal;
+        //}
     }
 }
