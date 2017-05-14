@@ -2,7 +2,7 @@
 
 ## 2.0.1
 * [fix][uwp] barometer was not reporting
-* [fix][uwp]
+* remove signatures with report interval since it isn't intended to be used.  Use the observable Sample or Buffer
 
 ## 2.0
 * [netstandard] this release only changes the bait/switch to netstandard.  If you need PCL, use 1.0

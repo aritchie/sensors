@@ -30,6 +30,7 @@ namespace Sample
                     this.ToggleText = "Stop";
                     this.sensorSub = sensor
                         .WhenReadingTaken()
+                        .Sample(TimeSpan.FromMilliseconds(500))
                         .Subscribe(this.Update);
                 }
                 else
