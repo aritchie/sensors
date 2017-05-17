@@ -2,7 +2,6 @@
 
 ## 2.1.0
 * [feature][android] compass implementation
-* [feature] CompassReading now has an extension method to calculate degrees to cardinal direction
 * [fix][android] proximity sensor now returns relevant boolean values.  Thanks to Emil Aplipiev
 * [fix][android] sensors now fire at fastest trigger speed.  Use observable.sample(timespan) to make this consumable
 * [fix][uwp] barometer was not firing event
