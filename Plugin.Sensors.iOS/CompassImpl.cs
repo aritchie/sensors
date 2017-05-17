@@ -42,9 +42,6 @@ namespace Plugin.Sensors
         }
 
 
-        protected CompassAccuracy FromNative(double value)
-        {
-            return value < 0 ? CompassAccuracy.Unreliable : CompassAccuracy.High;
-        }
+        protected CompassAccuracy FromNative(double value) => value < 0 ? CompassAccuracy.Unreliable : CompassAccuracy.High;
     }
 }
