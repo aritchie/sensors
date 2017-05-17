@@ -13,7 +13,6 @@ namespace Plugin.Sensors
     {
         readonly object syncLock;
         readonly SensorManager sensorManager;
-        readonly CompassReading reading;
         readonly float[] rMatrix = new float[9];
         readonly float[] orientation = new float[3];
         float[] lastAccel;
