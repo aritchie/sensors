@@ -11,14 +11,6 @@ namespace Plugin.Sensors
         }
 
 
-        protected override bool ToReading(SensorEvent e)
-        {
-            if (e.Values[0] < e.Sensor.MaximumRange)
-             // Detected something nearby
-                return true;
-            else
-             // Nothing is nearby
-                return false;
-        }
+        protected override bool ToReading(SensorEvent e) => e.Values[0] < e.Sensor.MaximumRange;
     }
 }

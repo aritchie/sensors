@@ -25,10 +25,7 @@ namespace Plugin.Sensors
         }
 
 
-        public void Stop()
-        {
-            this.sensorManager.UnregisterListener(this);
-        }
+        public void Stop() => this.sensorManager.UnregisterListener(this);
 
 
         public void OnAccuracyChanged(Sensor sensor, SensorStatus accuracy)
@@ -36,9 +33,6 @@ namespace Plugin.Sensors
         }
 
 
-        public void OnSensorChanged(SensorEvent e)
-        {
-            this.action(e);
-        }
+        public void OnSensorChanged(SensorEvent e) => this.action(e);
     }
 }
