@@ -13,7 +13,12 @@ namespace Plugin.Sensors
 
         protected override bool ToReading(SensorEvent e)
         {
-            return true;
+            if (e.Values[0] < e.Sensor.MaximumRange)
+             // Detected something nearby
+                return true;
+            else
+             // Nothing is nearby
+                return false;
         }
     }
 }
