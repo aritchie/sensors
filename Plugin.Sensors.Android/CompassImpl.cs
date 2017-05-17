@@ -15,7 +15,7 @@ namespace Plugin.Sensors
         readonly SensorManager sensorManager;
         readonly CompassReading reading;
         readonly float[] rMatrix = new float[9];
-        float[] orientation;
+        readonly float[] orientation = new float[3];
         float[] lastAccel;
         float[] lastMag;
 
