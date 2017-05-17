@@ -81,7 +81,7 @@ namespace Plugin.Sensors
             // TODO: not so allocatey
             // TODO: get compass accuracy
             // TODO: calculate true north
-            ob.OnNext(new CompassReading(CompassAccuracy.Approximate, degrees, 0));
+            ob.OnNext(new CompassReading(CompassAccuracy.Approximate, degrees, null));
 
             // clear for fresh read
             this.lastMag = null;

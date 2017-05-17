@@ -5,13 +5,21 @@ namespace Plugin.Sensors
 {
     public enum CardinalDirection
     {
-        North = 0,
-        NorthEast = 1,
-        East = 2,
-        SouthEast = 3,
-        South = 4,
-        SouthWest = 5,
-        West = 6,
-        NorthWest = 7
+        N,
+        NNE,
+        NE,
+        ENE,
+        E,
+        ESE,
+        SE,
+        SSE,
+        S,
+        SSW,
+        SW,
+        WSW,
+        W,
+        WNW,
+        NW,
+        NNW
     }
 }
