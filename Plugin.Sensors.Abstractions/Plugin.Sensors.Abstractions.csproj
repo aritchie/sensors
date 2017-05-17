@@ -43,6 +43,8 @@
     </Compile>
     <Compile Include="CompassAccuracy.cs" />
     <Compile Include="CompassReading.cs" />
+    <Compile Include="CardinalDirection.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="IAccelerometer.cs" />
     <Compile Include="IAmbientLight.cs" />
     <Compile Include="IBarometer.cs" />
