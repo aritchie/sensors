@@ -5,160 +5,158 @@ namespace Plugin.Sensors
 {
     public static class CrossSensors
     {
-        static IAccelerometer customAccel;
 
+        static IAccelerometer currentAccel;
         public static IAccelerometer Accelerometer
         {
             get
             {
-#if PCL
-                if (customAccel == null)
+#if BAIT
+                if (currentAccel == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customAccel;
 #else
-                customAccel = customAccel ?? new AccelerometerImpl();
-                return customAccel;
+                currentAccel = currentAccel ?? new AccelerometerImpl();
 #endif
+                return currentAccel;
             }
-            set { customAccel = value; }
+            set { currentAccel = value; }
         }
 
 
-        static IAmbientLight customLight;
-
+        static IAmbientLight currentLight;
         public static IAmbientLight AmbientLight
         {
             get
             {
-#if PCL
-                if (customLight == null)
+#if BAIT
+                if (currentLight == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customLight;
 #else
-                customLight = customLight ?? new AmbientLightImpl();
-                return customLight;
+                currentLight = currentLight ?? new AmbientLightImpl();
 #endif
+                return currentLight;
             }
-            set { customLight = value; }
+            set => currentLight = value;
         }
 
 
-        static IBarometer customBaro;
-
+        static IBarometer currentBaro;
         public static IBarometer Barometer
         {
             get
             {
-#if PCL
-                if (customBaro == null)
+#if BAIT
+                if (currentBaro == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customBaro;
 #else
-                customBaro = customBaro ?? new BarometerImpl();
-                return customBaro;
+                currentBaro = currentBaro ?? new BarometerImpl();
 #endif
+                return currentBaro;
             }
-            set { customBaro = value; }
+            set => currentBaro = value;
         }
 
 
-        static ICompass customCompass;
+        static ICompass currentCompass;
         public static ICompass Compass
         {
             get
             {
-#if PCL
-                if (customCompass == null)
+#if BAIT
+                if (currentCompass == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customCompass;
 #else
-                customCompass = customCompass ?? new CompassImpl();
-                return customCompass;
+                currentCompass = currentCompass ?? new CompassImpl();
 #endif
+                return currentCompass;
             }
-            set { customCompass = value; }
+            set => currentCompass = value;
         }
 
 
-        static IGyroscope customGyro;
+        static IDeviceOrientation currentDeviceOrientation;
+        public static IDeviceOrientation DeviceOrientation
+        {
+            get
+            {
+#if BAIT
+                if (currentDeviceOrientation == null)
+                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
+#else
+                currentDeviceOrientation = currentDeviceOrientation ?? new DeviceOrientationImpl();
+#endif
+                return currentDeviceOrientation;
+            }
+            set => currentDeviceOrientation = value;
+        }
+
+        static IGyroscope currentGyro;
         public static IGyroscope Gyroscope
         {
             get
             {
-#if PCL
-                if (customGyro == null)
+#if BAIT
+                if (currentGyro == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customGyro;
 #else
-                customGyro = customGyro ?? new GyroscopeImpl();
-                return customGyro;
+                currentGyro = currentGyro ?? new GyroscopeImpl();
 #endif
+                return currentGyro;
             }
-            set { customGyro = value; }
+            set => currentGyro = value;
         }
 
 
-        static IMagnetometer customMagnetometer;
+        static IMagnetometer currentMagnetometer;
 
         public static IMagnetometer Magnetometer
         {
             get
             {
-#if PCL
-                if (customMagnetometer == null)
+#if BAIT
+                if (currentMagnetometer == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customMagnetometer;
 #else
-                customMagnetometer = customMagnetometer ?? new MagnetometerImpl();
-                return customMagnetometer;
+                currentMagnetometer = currentMagnetometer ?? new MagnetometerImpl();
 #endif
+                return currentMagnetometer;
             }
-            set { customMagnetometer = value; }
+            set => currentMagnetometer = value;
         }
 
 
 
-        static IPedometer customPedometer;
+        static IPedometer currentPedometer;
         public static IPedometer Pedometer
         {
             get
             {
-#if PCL
-                if (customPedometer == null)
+#if BAIT
+                if (currentPedometer == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customPedometer;
 #else
-                customPedometer = customPedometer ?? new PedometerImpl();
-                return customPedometer;
+                currentPedometer = currentPedometer ?? new PedometerImpl();
 #endif
+                return currentPedometer;
             }
-            set { customPedometer = value; }
+            set => currentPedometer = value;
         }
 
 
-        static IProximity customProximity;
+        static IProximity currentProximity;
         public static IProximity Proximity
         {
             get
             {
-#if PCL
-                if (customProximity == null)
+#if BAIT
+                if (currentProximity == null)
                     throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-
-                return customProximity;
 #else
-                customProximity = customProximity ?? new ProximityImpl();
-                return customProximity;
+                currentProximity = currentProximity ?? new ProximityImpl();
 #endif
+                return currentProximity;
             }
-            set { customProximity = value; }
+            set => currentProximity = value;
         }
     }
 }

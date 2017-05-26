@@ -102,10 +102,9 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
-  <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="project.json" />
-  </ItemGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="AccelerometerImpl.cs" />
     <Compile Include="Adxl345\AbstractAccelerometer.cs" />
@@ -114,6 +113,7 @@
     <Compile Include="AmbientLightImpl.cs" />
     <Compile Include="BarometerImpl.cs" />
     <Compile Include="CompassImpl.cs" />
+    <Compile Include="DeviceOrientationImpl.cs" />
     <Compile Include="GyroscopeImpl.cs" />
     <Compile Include="MagnetometerImpl.cs" />
     <Compile Include="PedometerImpl.cs" />
@@ -126,6 +126,14 @@
       <Project>{322177b5-3029-42e2-ab95-fa4321f1c6e8}</Project>
       <Name>Plugin.Sensors.Abstractions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>5.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reactive">
+      <Version>3.1.1</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="..\Plugin.Sensors.Shared\Plugin.Sensors.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

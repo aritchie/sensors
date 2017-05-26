@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26206.0
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.Sensors", "Plugin.Sensors\Plugin.Sensors.csproj", "{150E72BD-08E5-48B6-A7DE-010EC70B4545}"
 EndProject
@@ -39,18 +39,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.iOS", "Sample\Sample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Droid", "Sample\Sample.Droid\Sample.Droid.csproj", "{23E16784-23E8-4546-A31C-FBCE22ECA17F}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sample.Shared", "Sample.Shared\Sample.Shared.shproj", "{A4C575B6-EE67-4CA5-8FC2-A099A67AFF0E}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Sample.Shared", "Sample\Sample.Shared\Sample.Shared.shproj", "{A4C575B6-EE67-4CA5-8FC2-A099A67AFF0E}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Plugin.Sensors.Shared\Plugin.Sensors.Shared.projitems*{0c85be7a-a717-4c05-8e06-a4709ca55431}*SharedItemsImports = 4
 		Plugin.Sensors.Shared\Plugin.Sensors.Shared.projitems*{150e72bd-08e5-48b6-a7de-010ec70b4545}*SharedItemsImports = 4
-		Sample.Shared\Sample.Shared.projitems*{23e16784-23e8-4546-a31c-fbce22eca17f}*SharedItemsImports = 4
+		Sample\Sample.Shared\Sample.Shared.projitems*{23e16784-23e8-4546-a31c-fbce22eca17f}*SharedItemsImports = 4
 		Plugin.Sensors.Shared\Plugin.Sensors.Shared.projitems*{72103259-6dec-43e9-a5f8-f2158b3cf5a9}*SharedItemsImports = 4
-		Sample.Shared\Sample.Shared.projitems*{a4c575b6-ee67-4ca5-8fc2-a099a67aff0e}*SharedItemsImports = 13
-		Sample.Shared\Sample.Shared.projitems*{a76015fb-5b2b-40d5-8bdb-50d0e805ee85}*SharedItemsImports = 4
+		Sample\Sample.Shared\Sample.Shared.projitems*{a4c575b6-ee67-4ca5-8fc2-a099a67aff0e}*SharedItemsImports = 13
+		Sample\Sample.Shared\Sample.Shared.projitems*{a76015fb-5b2b-40d5-8bdb-50d0e805ee85}*SharedItemsImports = 4
 		Plugin.Sensors.Shared\Plugin.Sensors.Shared.projitems*{cdc49c08-74a4-436b-9531-f32b1299746a}*SharedItemsImports = 4
-		Sample.Shared\Sample.Shared.projitems*{d8ad660f-2e4a-4604-a181-c26d6b78aa45}*SharedItemsImports = 4
+		Sample\Sample.Shared\Sample.Shared.projitems*{d8ad660f-2e4a-4604-a181-c26d6b78aa45}*SharedItemsImports = 4
 		Plugin.Sensors.Shared\Plugin.Sensors.Shared.projitems*{ec030d3a-0ed4-4b7c-a283-5c99502e8817}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

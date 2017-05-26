@@ -15,13 +15,16 @@ namespace Plugin.Sensors
         public IObservable<bool> WhenReadingTaken()
         {
             this.readOb = this.readOb ?? Observable.Create<bool>(ob =>
-                NSNotificationCenter
+            {
+                var observer = NSNotificationCenter
                     .DefaultCenter
                     .AddObserver(
                         UIDevice.ProximityStateDidChangeNotification,
                         _ => ob.OnNext(UIDevice.CurrentDevice.ProximityState)
-                    )
-            );
+                    );
+
+                return () => NSNotificationCenter.DefaultCenter.RemoveObserver(observer);
+            });
             return this.readOb;
         }
     }

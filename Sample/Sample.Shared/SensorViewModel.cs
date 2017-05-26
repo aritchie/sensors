@@ -50,11 +50,8 @@ namespace Sample
         public string ToggleText { get; set; }
 
 
-        protected virtual void Update(TReading reading)
-        {
-            Device.BeginInvokeOnMainThread(() =>
-                this.Value = reading.ToString()
-            );
-        }
+        protected virtual void Update(TReading reading) => Device.BeginInvokeOnMainThread(() =>
+            this.Value = reading.ToString()
+        );
     }
 }

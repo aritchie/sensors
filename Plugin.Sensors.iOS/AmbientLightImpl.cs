@@ -7,11 +7,6 @@ namespace Plugin.Sensors
     public class AmbientLightImpl : IAmbientLight
     {
         public bool IsAvailable => false;
-
-
-        public IObservable<double> WhenReadingTaken()
-        {
-            return Observable.Empty<double>();
-        }
+        public IObservable<double> WhenReadingTaken() => Observable.Empty<double>();
     }
 }

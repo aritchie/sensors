@@ -62,6 +62,7 @@
     <Compile Include="AmbientLightImpl.cs" />
     <Compile Include="BarometerImpl.cs" />
     <Compile Include="CompassImpl.cs" />
+    <Compile Include="DeviceOrientationImpl.cs" />
     <Compile Include="GyroscopeImpl.cs" />
     <Compile Include="MagnetometerImpl.cs" />
     <Compile Include="PedometerImpl.cs" />
