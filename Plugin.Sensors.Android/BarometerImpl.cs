@@ -6,14 +6,9 @@ namespace Plugin.Sensors
 {
     public class BarometerImpl : AbstractSensor<double>, IBarometer
     {
-        public BarometerImpl() : base(SensorType.Pressure)
-        {
-        }
+        public BarometerImpl() : base(SensorType.Pressure) {}
 
 
-        protected override double ToReading(SensorEvent e)
-        {
-            return e.Values[0];
-        }
+        protected override double ToReading(SensorEvent e) => e.Values[0];
     }
 }

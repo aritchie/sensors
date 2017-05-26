@@ -1,27 +1,30 @@
 ﻿using System;
-using System.Reactive.Linq;
+using Android.Hardware;
 
 
 namespace Plugin.Sensors
 {
-    public class DeviceOrientationImpl : IDeviceOrientation
+    public class DeviceOrientationImpl : AbstractSensor<DeviceOrientation>, IDeviceOrientation
     {
-        public bool IsAvailable { get; }
+        public DeviceOrientationImpl() : base(SensorType.Orientation) {}
 
 
-        IObservable<DeviceOrientation> readOb;
-        public IObservable<DeviceOrientation> WhenReadingTaken()
+        protected override DeviceOrientation ToReading(SensorEvent e)
         {
-            this.readOb = this.readOb ?? Observable.Create<DeviceOrientation>(ob =>
-            {
-                return () =>
-                {
-                };
-            })
-            .Publish()
-            .RefCount();
+            var degrees = e.Values[0];
+            if (degrees >= 0 && degrees < 90)
+                return DeviceOrientation.Portrait;
 
-            return this.readOb;
+            if (degrees >= 90 && degrees < 180)
+                return DeviceOrientation.LandscapeLeft;
+
+            if (degrees >= 180 && degrees < 270)
+                return DeviceOrientation.PortraitUpsideDown;
+
+            if (degrees >= 270 && degrees < 360)
+                return DeviceOrientation.LandscapeRight;
+
+            throw new ArgumentException("Invalid rotational degrees - " + degrees);
         }
     }
 }
