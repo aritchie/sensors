@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## 2.2
+* [feature] device orientation
+
 ## 2.1.0
 * [feature][android] compass implementation
 * [fix][android] proximity sensor now returns relevant boolean values.  Thanks to Emil Aplipiev

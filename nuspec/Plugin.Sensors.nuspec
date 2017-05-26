@@ -13,6 +13,7 @@ Available Sensors
 * Ambient Light
 * Barometer
 * Compass
+* Device Orientation
 * Gyroscope
 * Magnetometer
 * Pedometer

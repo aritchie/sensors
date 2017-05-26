@@ -3,7 +3,7 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 
 [![NuGet](https://img.shields.io/nuget/v/Plugin.Sensors.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.Sensors/)
 
-[Change Log - May 17, 2017](changelog.md)
+[Change Log - May 26, 2017](changelog.md)
 
 
 ## PLATFORMS
@@ -20,6 +20,7 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 * Ambient Light
 * Barometer
 * Compass
+* Device Orientation
 * Gyroscope
 * Magnetometer
 * Pedometer
