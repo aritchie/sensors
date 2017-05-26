@@ -9,6 +9,16 @@ namespace Plugin.Sensors
 {
     public class DeviceOrientationImpl : IDeviceOrientation
     {
+        //public DeviceOrientationImpl()
+        //{
+        //    //OrientationSensor.GetDefault(SensorReadingType.Absolute).ReadingTransform
+        ////    OrientationSensor.GetDefault();
+        //    //Window.Current.VisibilityChanged += new WindowVisibilityChangedEventHandler(VisibilityChanged);
+        //    //_sensor.ReadingChanged += new TypedEventHandler<OrientationSensor, OrientationSensorReadingChangedEventArgs>(ReadingChanged);
+
+        //}
+
+
         public bool IsAvailable => Gyrometer.GetDefault() != null;
 
 
