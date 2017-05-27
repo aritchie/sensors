@@ -2,24 +2,22 @@
 using System.Reactive.Linq;
 using Windows.Devices.Sensors;
 using Windows.Foundation;
-using Windows.Graphics.Display;
 
 
 namespace Plugin.Sensors
 {
     public class DeviceOrientationImpl : IDeviceOrientation
     {
-        //public DeviceOrientationImpl()
-        //{
-        //    //OrientationSensor.GetDefault(SensorReadingType.Absolute).ReadingTransform
-        ////    OrientationSensor.GetDefault();
-        //    //Window.Current.VisibilityChanged += new WindowVisibilityChangedEventHandler(VisibilityChanged);
-        //    //_sensor.ReadingChanged += new TypedEventHandler<OrientationSensor, OrientationSensorReadingChangedEventArgs>(ReadingChanged);
-
-        //}
+        readonly SimpleOrientationSensor sensor;
 
 
-        public bool IsAvailable => Gyrometer.GetDefault() != null;
+        public DeviceOrientationImpl()
+        {
+            this.sensor = SimpleOrientationSensor.GetDefault();
+        }
+
+
+        public bool IsAvailable => this.sensor != null;
 
 
         IObservable<DeviceOrientation> readOb;
@@ -27,12 +25,12 @@ namespace Plugin.Sensors
         {
             this.readOb = this.readOb ?? Observable.Create<DeviceOrientation>(ob =>
             {
-                var displayInfo = DisplayInformation.GetForCurrentView();
-                this.Broadcast(ob, displayInfo); // startwith
-                var handler = new TypedEventHandler<DisplayInformation, object>((sender, args) => this.Broadcast(ob, displayInfo));
-                displayInfo.OrientationChanged += handler;
+                this.Broadcast(ob, this.sensor.GetCurrentOrientation()); // startwith
+                var handler = new TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>(
+                    (sender, args) => this.Broadcast(ob, args.Orientation));
 
-                return () => displayInfo.OrientationChanged -= handler;
+                this.sensor.OrientationChanged += handler;
+                return () => this.sensor.OrientationChanged -= handler;
             })
             .Publish()
             .RefCount()
@@ -42,23 +40,23 @@ namespace Plugin.Sensors
         }
 
 
-        void Broadcast(IObserver<DeviceOrientation> ob, DisplayInformation displayInfo)
+        void Broadcast(IObserver<DeviceOrientation> ob, SimpleOrientation orientation)
         {
-            switch (displayInfo.CurrentOrientation)
+            switch (orientation)
             {
-                case DisplayOrientations.Landscape:
+                case SimpleOrientation.NotRotated:
                     ob.OnNext(DeviceOrientation.LandscapeLeft);
                     break;
 
-                case DisplayOrientations.Portrait:
+                case SimpleOrientation.Rotated90DegreesCounterclockwise:
                     ob.OnNext(DeviceOrientation.Portrait);
                     break;
 
-                case DisplayOrientations.LandscapeFlipped:
+                case SimpleOrientation.Rotated180DegreesCounterclockwise:
                     ob.OnNext(DeviceOrientation.LandscapeRight);
                     break;
 
-                case DisplayOrientations.PortraitFlipped:
+                case SimpleOrientation.Rotated270DegreesCounterclockwise:
                     ob.OnNext(DeviceOrientation.PortraitUpsideDown);
                     break;
             }
