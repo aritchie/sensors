@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata minClientVersion="2.8.1">
         <id>Plugin.Sensors</id>
-        <version>2.2.0</version>
+        <version>2.2.1</version>
         <title>ACR Reactive Sensors Plugin for Xamarin and Windows</title>
         <summary>ACR Reactive Sensors Plugin for Xamarin and Windows</summary>
         <description>
@@ -34,21 +34,13 @@ Supported Platforms
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>ios android xamarin rx reactive motion sensors</tags>
         <dependencies>
-            <group targetFramework="Xamarin.iOS10">
-                <dependency id="System.Reactive" version="[3.1.1, 4)" />
-            </group>
-            <group targetFramework="MonoAndroid10">
-                <dependency id="System.Reactive" version="[3.1.1, 4)" />
-            </group>
-            <group targetFramework="uap10.0">
-                <dependency id="System.Reactive" version="[3.1.1, 4)" />
-            </group>
+            <dependency id="System.Reactive" version="[3.1.1, 4)" />
         </dependencies>
         <releaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</releaseNotes>
     </metadata>
     <files>
         <!-- portable -->
-        <file src="..\Plugin.Sensors\bin\Release\Plugin.Sensors.*" target="lib\netstandard1.0" />
+        <file src="..\Plugin.Sensors\bin\Release\netstandard1.0\Plugin.Sensors.*" target="lib\netstandard1.0" />
 
         <!-- android -->
         <file src="..\Plugin.Sensors.Android\bin\Release\Plugin.Sensors.*" target="lib\MonoAndroid10" />

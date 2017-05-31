@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## 2.2.1
+* [fix] nuget package was missing netstandard library
+
 ## 2.2.0
 * [feature] device orientation
 
