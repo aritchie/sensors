@@ -1,6 +1,9 @@
 ﻿using System;
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
+
+[assembly: XamlCompilation(XamlCompilationOptions.Skip)]
 
 namespace Sample
 {
