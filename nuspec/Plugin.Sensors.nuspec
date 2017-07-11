@@ -6,25 +6,25 @@
         <title>ACR Reactive Sensors Plugin for Xamarin and Windows</title>
         <summary>ACR Reactive Sensors Plugin for Xamarin and Windows</summary>
         <description>
-Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
+            Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
 
-Available Sensors
-* Accelerometer
-* Ambient Light
-* Barometer
-* Compass
-* Device Orientation
-* Gyroscope
-* Magnetometer
-* Pedometer
-* Proximity
+            Available Sensors
+            * Accelerometer
+            * Ambient Light
+            * Barometer
+            * Compass
+            * Device Orientation
+            * Gyroscope
+            * Magnetometer
+            * Pedometer
+            * Proximity
 
-Supported Platforms
-* NET Standard 1.0
-* Android 4.3+
-* iOS 8+
-* Windows
-* WinCore IoT (ADXL 345)
+            Supported Platforms
+            * NET Standard 1.0
+            * Android 4.3+
+            * iOS 8+
+            * Tizen
+            * Windows UWP
         </description>
         <authors>Allan Ritchie</authors>
         <owners>Allan Ritchie</owners>
@@ -34,12 +34,20 @@ Supported Platforms
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <tags>ios android xamarin rx reactive motion sensors</tags>
         <dependencies>
-            <dependency id="System.Reactive" version="[3.1.1, 4)" />
+            <group>
+                <dependency id="System.Reactive" version="[3.1.1, 4)" />
+                <dependency id="NETStandard.Library" version="[1.6.1, 2)" />
+            </group>
+            <group targetFramework="tizen30">
+                <dependency id="NETStandard.Library" version="[1.6.1, 2)" />
+                <dependency id="Tizen.Sensor" version="[1.0.7, 2)" />
+                <dependency id="System.Reactive" version="[3.1.1, 4)" />
+            </group>
         </dependencies>
         <releaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</releaseNotes>
     </metadata>
     <files>
-        <!-- portable -->
+        <!-- netstandard -->
         <file src="..\Plugin.Sensors\bin\Release\netstandard1.0\Plugin.Sensors.*" target="lib\netstandard1.0" />
 
         <!-- android -->
@@ -50,5 +58,8 @@ Supported Platforms
 
         <!-- uwp -->
         <file src="..\Plugin.Sensors.Uwp\bin\Release\Plugin.Sensors.*" target="lib\uap10.0" />
+
+        <!-- tizen -->
+        <file src="..\Plugin.Sensors.Tizen\bin\Release\Plugin.Sensors.*" target="lib\tizen30" />
     </files>
 </package>
