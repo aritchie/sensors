@@ -1,5 +1,8 @@
 # CHANGE LOG
 
+## 2.3
+* [feature] .NET Standard 2.0
+
 ## 2.2.1
 * [fix] nuget package was missing netstandard library
 

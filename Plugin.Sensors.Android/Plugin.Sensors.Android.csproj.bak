@@ -15,7 +15,7 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +63,7 @@
     <Compile Include="AmbientLightImpl.cs" />
     <Compile Include="BarometerImpl.cs" />
     <Compile Include="CompassImpl.cs" />
+    <Compile Include="DeviceOrientationImpl.cs" />
     <Compile Include="GyroscopeImpl.cs" />
     <Compile Include="MagnetometerImpl.cs" />
     <Compile Include="PedometerImpl.cs" />
