@@ -1,15 +1,15 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Reactive.Linq;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Plugin.Sensors;
 using Xamarin.Forms;
-using PropertyChanged;
 
 
 namespace Sample
 {
-    [ImplementPropertyChanged]
-    public class SensorViewModel<TReading> : ISensorViewModel
+    public class SensorViewModel<TReading> : ISensorViewModel, INotifyPropertyChanged
     {
         IDisposable sensorSub;
 
@@ -46,12 +46,43 @@ namespace Sample
         public string Title { get; }
         public ICommand Toggle { get; }
         public string ValueName { get; }
-        public string Value { get; set; }
-        public string ToggleText { get; set; }
+
+
+        string sensorValue;
+        public string Value
+        {
+            get => this.sensorValue;
+            set => this.Set(ref this.sensorValue, value);
+        }
+
+
+        string toggleText;
+        public string ToggleText
+        {
+            get => this.toggleText;
+            set => this.Set(ref this.toggleText, value);
+        }
 
 
         protected virtual void Update(TReading reading) => Device.BeginInvokeOnMainThread(() =>
             this.Value = reading.ToString()
         );
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+            => this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
+
+        protected virtual bool Set<T>(ref T property, T value, [CallerMemberName] string propertyName = null)
+        {
+            if (Object.Equals(property, value))
+                return false;
+
+            property = value;
+            this.OnPropertyChanged(propertyName);
+            return true;
+        }
     }
 }

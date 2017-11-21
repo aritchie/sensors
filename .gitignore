@@ -261,3 +261,4 @@ __pycache__/
 *.pyc
 Plugin.Sensors.Android/Plugin.Sensors.Android.csproj.bak
 Sample/Sample.Droid/Sample.Droid.csproj.bak
+/Plugin.Sensors.sln.DotSettings
