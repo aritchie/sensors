@@ -151,18 +151,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Plugin.Sensors.Abstractions\Plugin.Sensors.Abstractions.csproj">
-      <Project>{322177b5-3029-42e2-ab95-fa4321f1c6e8}</Project>
-      <Name>Plugin.Sensors.Abstractions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Plugin.Sensors.Uwp\Plugin.Sensors.Uwp.csproj">
-      <Project>{0c85be7a-a717-4c05-8e06-a4709ca55431}</Project>
-      <Name>Plugin.Sensors.Uwp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
-      <Version>6.0.2</Version>
+      <Version>6.0.5</Version>
     </PackageReference>
     <PackageReference Include="NETStandard.Library">
       <Version>2.0.1</Version>
@@ -170,6 +160,12 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>2.4.0.91020</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Plugin.Sensors\Plugin.Sensors.csproj">
+      <Project>{150e72bd-08e5-48b6-a7de-010ec70b4545}</Project>
+      <Name>Plugin.Sensors</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Sample.Shared\Sample.Shared.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

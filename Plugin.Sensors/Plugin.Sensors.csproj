@@ -1,22 +1,72 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+      <TargetFrameworks>netstandard2.0;MonoAndroid70;MonoAndroid80;Xamarin.iOS10;uap10.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
       <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+      <Authors>Allan Ritchie</Authors>
+      <PackageLicenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</PackageLicenseUrl>
+      <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
+      <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
+      <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;BAIT</DefineConstants>
-  </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+        <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+        <DefineConstants>$(DefineConstants);NETSTANDARD;BAIT</DefineConstants>
+        <Product>Plugin.Sensors - .NET Standard 2</Product>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;BAIT</DefineConstants>
-  </PropertyGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8' ">
+        <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+        <DefineConstants>$(DefineConstants);PCL;BAIT</DefineConstants>
+        <Product>Plugin.Notifications - PCL</Product>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Plugin.Sensors.Abstractions\Plugin.Sensors.Abstractions.csproj" />
-  </ItemGroup>
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'MonoAndroid70' OR '$(TargetFramework)' == 'MonoAndroid80' ">
+        <DefineConstants>$(DefineConstants);__ANDROID__</DefineConstants>
+        <Product>Plugin.Sensors - Android</Product>
+    </PropertyGroup>
 
-  <Import Project="..\Plugin.Sensors.Shared\Plugin.Sensors.Shared.projitems" Label="Shared" />
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
+        <DefineConstants>$(DefineConstants);__IOS__</DefineConstants>
+        <Product>Plugin.Sensors - iOS</Product>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
+        <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+        <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+        <DefineConstants>$(DefineConstants);WINDOWS_UWP</DefineConstants>
+        <Product>Plugin.Notifications - UWP</Product>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="Platforms\**\*.cs" />
+        <None Include="Platforms\**\*.*" />
+        <PackageReference Include="System.Reactive" Version="3.1.1" />
+        <PackageReference Include="MSBuild.Sdk.Extras" Version="1.1.0" PrivateAssets="all" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8' ">
+        <Compile Include="Platforms\Shared\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'MonoAndroid70' OR '$(TargetFramework)' == 'MonoAndroid80' ">
+        <Compile Include="Platforms\Shared\**\*.cs" />
+        <Compile Include="Platforms\Android\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
+        <Compile Include="Platforms\Shared\**\*.cs" />
+        <Compile Include="Platforms\ios\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
+        <Compile Include="Platforms\Shared\**\*.cs" />
+        <Compile Include="Platforms\Uwp\**\*.cs" />
+        <EmbeddedResource Include="Platforms\Uwp\Plugin.Sensors.rd.xml" />
+    </ItemGroup>
+
+    <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 
 </Project>
