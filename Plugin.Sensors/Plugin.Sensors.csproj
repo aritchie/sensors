@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-      <TargetFrameworks>netstandard2.0;MonoAndroid70;MonoAndroid80;Xamarin.iOS10;uap10.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
+      <TargetFrameworks>netstandard2.0;MonoAndroid70;MonoAndroid80;Xamarin.iOS10;uap10.0</TargetFrameworks>
       <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
       <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
       <Authors>Allan Ritchie</Authors>
@@ -15,12 +15,6 @@
         <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
         <DefineConstants>$(DefineConstants);NETSTANDARD;BAIT</DefineConstants>
         <Product>Plugin.Sensors - .NET Standard 2</Product>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8' ">
-        <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-        <DefineConstants>$(DefineConstants);PCL;BAIT</DefineConstants>
-        <Product>Plugin.Notifications - PCL</Product>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(TargetFramework)' == 'MonoAndroid70' OR '$(TargetFramework)' == 'MonoAndroid80' ">
@@ -47,7 +41,7 @@
         <PackageReference Include="MSBuild.Sdk.Extras" Version="1.1.0" PrivateAssets="all" />
     </ItemGroup>
 
-    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8' ">
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
         <Compile Include="Platforms\Shared\**\*.cs" />
     </ItemGroup>
 
