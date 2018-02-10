@@ -1,26 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-      <TargetFrameworks>netstandard2.0;MonoAndroid70;MonoAndroid80;Xamarin.iOS10;uap10.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
-      <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-      <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-      <Authors>Allan Ritchie</Authors>
-      <PackageLicenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</PackageLicenseUrl>
-      <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
-      <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
-      <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
-  </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
-        <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-        <DefineConstants>$(DefineConstants);NETSTANDARD;BAIT</DefineConstants>
-        <Product>Plugin.Sensors - .NET Standard 2</Product>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard1.0;netstandard2.0;MonoAndroid70;MonoAndroid80;Xamarin.iOS10;uap10.0</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>aritchie</Authors>
+        <PackageLicenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</PackageLicenseUrl>
+        <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
+        <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
+        <Company />
+        <Description>ACR Sensors Plugin for Windows &amp; Xamarin</Description>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8' ">
+    <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' OR '$(TargetFramework)' == 'netstandard2.0' ">
         <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-        <DefineConstants>$(DefineConstants);PCL;BAIT</DefineConstants>
-        <Product>Plugin.Notifications - PCL</Product>
+        <DefineConstants>$(DefineConstants);NETSTANDARD;BAIT</DefineConstants>
+        <Product>Plugin.Sensors - .NET Standard</Product>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(TargetFramework)' == 'MonoAndroid70' OR '$(TargetFramework)' == 'MonoAndroid80' ">
@@ -34,8 +29,6 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
-        <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
-        <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
         <DefineConstants>$(DefineConstants);WINDOWS_UWP</DefineConstants>
         <Product>Plugin.Notifications - UWP</Product>
     </PropertyGroup>
@@ -44,10 +37,10 @@
         <Compile Remove="Platforms\**\*.cs" />
         <None Include="Platforms\**\*.*" />
         <PackageReference Include="System.Reactive" Version="3.1.1" />
-        <PackageReference Include="MSBuild.Sdk.Extras" Version="1.1.0" PrivateAssets="all" />
+        <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.1" PrivateAssets="all" />
     </ItemGroup>
 
-    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8' ">
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' OR '$(TargetFramework)' == 'netstandard2.0' ">
         <Compile Include="Platforms\Shared\**\*.cs" />
     </ItemGroup>
 
