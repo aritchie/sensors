@@ -29,6 +29,8 @@
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
+        <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+        <TargetPlatformMinVersion>10.0.15138.0</TargetPlatformMinVersion>
         <DefineConstants>$(DefineConstants);WINDOWS_UWP</DefineConstants>
         <Product>Plugin.Notifications - UWP</Product>
     </PropertyGroup>
