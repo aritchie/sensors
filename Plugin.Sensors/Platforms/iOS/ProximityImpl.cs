@@ -16,6 +16,7 @@ namespace Plugin.Sensors
         {
             this.readOb = this.readOb ?? Observable.Create<bool>(ob =>
             {
+                UIDevice.CurrentDevice.ProximityMonitoringEnabled = true;
                 var observer = NSNotificationCenter
                     .DefaultCenter
                     .AddObserver(
@@ -23,8 +24,16 @@ namespace Plugin.Sensors
                         _ => ob.OnNext(UIDevice.CurrentDevice.ProximityState)
                     );
 
-                return () => NSNotificationCenter.DefaultCenter.RemoveObserver(observer);
-            });
+                return () =>
+                {
+                    UIDevice.CurrentDevice.ProximityMonitoringEnabled = false;
+                    NSNotificationCenter.DefaultCenter.RemoveObserver(observer);
+                };
+            })
+            .StartWith(UIDevice.CurrentDevice.ProximityState)
+            .Publish()
+            .RefCount();
+
             return this.readOb;
         }
     }
