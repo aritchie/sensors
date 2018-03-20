@@ -27,7 +27,7 @@ Supported Platforms
       </Description>
       <PackageLicenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</PackageLicenseUrl>
       <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
-      <PackageVersion>2.4.0</PackageVersion>
+      <PackageVersion>2.4.1</PackageVersion>
       <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
       <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
   </PropertyGroup>
@@ -62,7 +62,7 @@ Supported Platforms
         <PackageReference Include="MSBuild.Sdk.Extras" Version="1.2.2" PrivateAssets="all" />
     </ItemGroup>
 
-    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.0' OR '$(TargetFramework)' == 'netstandard2.0' ">
         <Compile Include="Platforms\Shared\**\*.cs" />
     </ItemGroup>
 
