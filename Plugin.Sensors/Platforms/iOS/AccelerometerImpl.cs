@@ -11,7 +11,7 @@ namespace Plugin.Sensors
 
 
         protected override void Start(CMMotionManager mgr, IObserver<MotionReading> ob)
-            => mgr.StartAccelerometerUpdates(NSOperationQueue.CurrentQueue, (data, err) =>
+            => mgr.StartAccelerometerUpdates(NSOperationQueue.CurrentQueue ?? new NSOperationQueue(), (data, err) =>
                 ob.OnNext(new MotionReading(data.Acceleration.X, data.Acceleration.Y, data.Acceleration.Z))
             );
 

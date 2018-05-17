@@ -9,7 +9,7 @@ namespace Plugin.Sensors
     {
         protected override bool IsSensorAvailable(CMMotionManager mgr) => mgr.AccelerometerAvailable;
         protected override void Start(CMMotionManager mgr, IObserver<MotionReading> ob) =>
-            mgr.StartGyroUpdates(NSOperationQueue.CurrentQueue, (data, err) =>
+            mgr.StartGyroUpdates(NSOperationQueue.CurrentQueue ?? new NSOperationQueue(), (data, err) =>
                 ob.OnNext(new MotionReading(data.RotationRate.x, data.RotationRate.y, data.RotationRate.z))
             );
 

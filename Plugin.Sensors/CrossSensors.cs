@@ -3,20 +3,19 @@
 
 namespace Plugin.Sensors
 {
-    public static class CrossSensors
+    public static partial class CrossSensors
     {
+        const string ERROR = "[Plugin.Sensors] This is the bait library.  Make sure to install the nuget package into your platform projects as well!";
+
 
         static IAccelerometer currentAccel;
         public static IAccelerometer Accelerometer
         {
             get
             {
-#if BAIT
                 if (currentAccel == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentAccel = currentAccel ?? new AccelerometerImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentAccel;
             }
             set { currentAccel = value; }
@@ -28,12 +27,9 @@ namespace Plugin.Sensors
         {
             get
             {
-#if BAIT
                 if (currentLight == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentLight = currentLight ?? new AmbientLightImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentLight;
             }
             set => currentLight = value;
@@ -45,12 +41,9 @@ namespace Plugin.Sensors
         {
             get
             {
-#if BAIT
                 if (currentBaro == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentBaro = currentBaro ?? new BarometerImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentBaro;
             }
             set => currentBaro = value;
@@ -62,12 +55,9 @@ namespace Plugin.Sensors
         {
             get
             {
-#if BAIT
                 if (currentCompass == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentCompass = currentCompass ?? new CompassImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentCompass;
             }
             set => currentCompass = value;
@@ -79,28 +69,23 @@ namespace Plugin.Sensors
         {
             get
             {
-#if BAIT
                 if (currentDeviceOrientation == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentDeviceOrientation = currentDeviceOrientation ?? new DeviceOrientationImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentDeviceOrientation;
             }
             set => currentDeviceOrientation = value;
         }
+
 
         static IGyroscope currentGyro;
         public static IGyroscope Gyroscope
         {
             get
             {
-#if BAIT
                 if (currentGyro == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentGyro = currentGyro ?? new GyroscopeImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentGyro;
             }
             set => currentGyro = value;
@@ -108,22 +93,17 @@ namespace Plugin.Sensors
 
 
         static IMagnetometer currentMagnetometer;
-
         public static IMagnetometer Magnetometer
         {
             get
             {
-#if BAIT
                 if (currentMagnetometer == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentMagnetometer = currentMagnetometer ?? new MagnetometerImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentMagnetometer;
             }
             set => currentMagnetometer = value;
         }
-
 
 
         static IPedometer currentPedometer;
@@ -131,12 +111,9 @@ namespace Plugin.Sensors
         {
             get
             {
-#if BAIT
                 if (currentPedometer == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentPedometer = currentPedometer ?? new PedometerImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentPedometer;
             }
             set => currentPedometer = value;
@@ -148,12 +125,9 @@ namespace Plugin.Sensors
         {
             get
             {
-#if BAIT
                 if (currentProximity == null)
-                    throw new ArgumentException("[Plugin.Sensors] This is the bait PCL library.  Make sure to install the nuget package into your platform projects as well!");
-#else
-                currentProximity = currentProximity ?? new ProximityImpl();
-#endif
+                    throw new ArgumentException(ERROR);
+
                 return currentProximity;
             }
             set => currentProximity = value;

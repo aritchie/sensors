@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2.4.2
+* [fix][ios] Queue is empty when firing from background
+* Minor shift of internals
+
 ## 2.3
 * [feature] .NET Standard 2.0
 

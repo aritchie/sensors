@@ -22,7 +22,7 @@ namespace Plugin.Sensors
 		TimeSpan reportInterval = TimeSpan.FromMilliseconds(500);
         public TimeSpan ReportInterval
         {
-            get { return this.reportInterval; }
+            get => this.reportInterval;
             set
             {
                 this.reportInterval = value;
