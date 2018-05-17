@@ -7,27 +7,29 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Allan Ritchie</Authors>
     <Description>
-      Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
+Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
 
-      Available Sensors
-      * Accelerometer
-      * Ambient Light
-      * Barometer
-      * Compass
-      * Device Orientation
-      * Gyroscope
-      * Magnetometer
-      * Pedometer
-      * Proximity
+Available Sensors
+* Accelerometer
+* Ambient Light
+* Barometer
+* Compass
+* Device Orientation
+* Gyroscope
+* Magnetometer
+* Pedometer
+* Proximity
 
-      Supported Platforms
-      * NET Standard
-      * Android 4.3+
-      * iOS 8+
-      * Windows UWP
+Supported Platforms
+* NET Standard
+* Android 4.3+
+* iOS 8+
+* Windows UWP
     </Description>
     <PackageLicenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</PackageLicenseUrl>
     <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
     <PackageVersion>2.4.2</PackageVersion>
     <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
     <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
@@ -54,7 +56,6 @@
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
-    <Compile Include="Platforms\Shared\**\*.cs" />
     <Compile Include="Platforms\Uwp\**\*.cs" />
     <EmbeddedResource Include="Platforms\Uwp\Plugin.Sensors.rd.xml" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.5" />
