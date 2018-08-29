@@ -19,7 +19,7 @@ namespace Plugin.Sensors
             {
                 var altimeter = new CMAltimeter();
                 altimeter.StartRelativeAltitudeUpdates(NSOperationQueue.CurrentQueue, (data, error) =>
-                    ob.OnNext(data.Pressure.DoubleValue)
+                    ob.OnNext(data.Pressure.DoubleValue) // kilopascals
                 );
                 return () =>
                 {

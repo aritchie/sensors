@@ -9,6 +9,7 @@ namespace Plugin.Sensors
         public BarometerImpl() : base(SensorType.Pressure) {}
 
 
-        protected override double ToReading(SensorEvent e) => e.Values[0];
+        //1 meter sea water [msw] = 100 hectopascal [hPa]
+        protected override double ToReading(SensorEvent e) => e.Values[0]; // hpa
     }
 }

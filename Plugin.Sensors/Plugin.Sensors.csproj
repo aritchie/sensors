@@ -1,12 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.47">
 
-  <PropertyGroup>
-    <TargetFrameworks></TargetFrameworks>
-    <TargetFrameworks Condition=" '$(OS)' == 'Windows_NT' ">netstandard1.0;netstandard2.0;MonoAndroid70;MonoAndroid80;Xamarin.iOS10;uap10.0</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(OS)' != 'Windows_NT' ">netstandard1.0;netstandard2.0;MonoAndroid70;MonoAndroid80;Xamarin.iOS10</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Allan Ritchie</Authors>
-    <Description>
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;MonoAndroid80;Xamarin.iOS10;uap10.0</TargetFrameworks>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>Allan Ritchie</Authors>
+        <Description>
 Cross Platform Reactive Motion Sensors Plugin for Xamarin and Windows
 
 Available Sensors
@@ -26,41 +24,54 @@ Supported Platforms
 * iOS 8+
 * Windows UWP
     </Description>
-    <PackageLicenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
-    <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
-    <PackageVersion>2.4.2</PackageVersion>
-    <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
-    <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
-  </PropertyGroup>
+        <PackageLicenseUrl>https://github.com/aritchie/sensors/blob/master/LICENSE.md</PackageLicenseUrl>
+        <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
+        <Product>$(AssemblyName) ($(TargetFramework))</Product>
+        <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
+        <PackageVersion>3.0.0</PackageVersion>
+        <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
+        <RepositoryUrl>https://github.com/aritchie/bluetoothle</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <IncludeSymbols>True</IncludeSymbols>
+        <IncludeSource>True</IncludeSource>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+    </PropertyGroup>
 
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
-    <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
-  </PropertyGroup>
+    <PropertyGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+        <TargetPlatformVersion>10.0.16299.0</TargetPlatformVersion>
+        <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Platforms\**\*.cs" />
-    <None Include="Platforms\**\*.*" />
-    <PackageReference Include="System.Reactive" Version="3.1.1" />
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="all" />
-  </ItemGroup>
+    <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
+        <DebugType>full</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
+        <DebugType>pdbonly</DebugType>
+    </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'MonoAndroid70' OR '$(TargetFramework)' == 'MonoAndroid80' ">
-    <Compile Include="Platforms\Android\**\*.cs" />
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Platforms\**\*.cs" />
+        <None Include="Platforms\**\*.*" />
+        <PackageReference Include="System.Reactive" Version="4.1.0" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
+    </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'Xamarin.iOS10' ">
-    <Compile Include="Platforms\ios\**\*.cs" />
-  </ItemGroup>
+    <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
+        <Compile Include="Platforms\Android\**\*.cs" />
+        <PackageReference Include="Xamarin.GooglePlayServices.Location" Version="60.1142.1" />
+    </ItemGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' == 'uap10.0' ">
-    <Compile Include="Platforms\Uwp\**\*.cs" />
-    <EmbeddedResource Include="Platforms\Uwp\Plugin.Sensors.rd.xml" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.5" />
-  </ItemGroup>
+    <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
+        <Compile Include="Platforms\ios\**\*.cs" />
+    </ItemGroup>
 
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
+    <ItemGroup Condition=" $(TargetFramework.StartsWith('uap')) ">
+        <Compile Include="Platforms\Uwp\**\*.cs" />
+        <EmbeddedResource Include="Platforms\Uwp\Plugin.Sensors.rd.xml" />
+    </ItemGroup>
 
 </Project>

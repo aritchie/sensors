@@ -6,7 +6,7 @@ namespace Plugin.Sensors
 {
     public class PedometerImpl : IPedometer
     {
-        readonly Pedometer pedometer;
+        //readonly Pedometer pedometer;
 
 
         public PedometerImpl()

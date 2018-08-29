@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Reactive.Linq;
 using Plugin.Sensors;
+using ReactiveUI;
 
 
 namespace Sample
@@ -25,6 +28,26 @@ namespace Sample
                 new SensorViewModel<int>(CrossSensors.Pedometer, "Steps"),
                 new SensorViewModel<bool>(CrossSensors.Proximity, "Near")
             };
+            CrossSensors
+                .MotionActivity
+                .WhenActivityChanged()
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(x => this.MotionActivities.Add(new MotionActivityViewModel
+                {
+                    Text = $"{x.Motions} ({x.Confidence})",
+                    Detail = x.StartDate.ToString()
+                }));
         }
+
+
+        public bool IsMotionActivityAvailable => CrossSensors.MotionActivity.IsSupported;
+        public ObservableCollection<MotionActivityViewModel> MotionActivities { get; } = new ObservableCollection<MotionActivityViewModel>();
+    }
+
+
+    public class MotionActivityViewModel
+    {
+        public string Text { get; set; }
+        public string Detail { get; set; }
     }
 }

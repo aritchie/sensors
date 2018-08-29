@@ -18,7 +18,7 @@ namespace Plugin.Sensors
 
                 return currentAccel;
             }
-            set { currentAccel = value; }
+            set => currentAccel = value;
         }
 
 
@@ -103,6 +103,20 @@ namespace Plugin.Sensors
                 return currentMagnetometer;
             }
             set => currentMagnetometer = value;
+        }
+
+
+        static IMotionActivity currentMA;
+        public static IMotionActivity MotionActivity
+        {
+            get
+            {
+                if (currentMA == null)
+                    throw new ArgumentException(ERROR);
+
+                return currentMA;
+            }
+            set => currentMA = value;
         }
 
 
