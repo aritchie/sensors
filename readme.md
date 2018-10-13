@@ -3,15 +3,18 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 
 [![NuGet](https://img.shields.io/nuget/v/Plugin.Sensors.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.Sensors/)
 
-[Change Log - May 26, 2017](changelog.md)
+[Change Log - May 26, 2018](changelog.md)
+
+### [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
 
 
 ## PLATFORMS
-* NET Standard 1.0 - this will install into PCL profile 259 in VS2017
-* Android 4.3+
-* iOS 7+
-* Windows UWP 
-* Windows Core IoT (ADXL 345 Accelerometer)
+|Platform|Version|
+|--------|-------|
+iOS|7+
+Android|4.3+
+Windows UWP (including core)|16299+
+.NET Standard|2.0
 
 
 ## SUPPORTED SENSORS
