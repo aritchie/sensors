@@ -4,6 +4,7 @@ Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Window
 [![NuGet](https://img.shields.io/nuget/v/Plugin.Sensors.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.Sensors/)
 
 [Change Log - May 26, 2018](changelog.md)
+
 [![Build status](https://allanritchie.visualstudio.com/Plugins/_apis/build/status/Sensors)](https://allanritchie.visualstudio.com/Plugins/_build/latest?definitionId=0)
 
 ### [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
