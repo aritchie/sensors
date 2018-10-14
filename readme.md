@@ -1,8 +1,6 @@
 # ACR Reactive Sensors Plugin for Xamarin & Windows
 _Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Windows UWP_
 
-### [SUPPORT THIS PROJECT](https://github.com/aritchie/home)
-
 [Change Log - May 26, 2018](changelog.md)
 
 [![NuGet](https://img.shields.io/nuget/v/Plugin.Sensors.svg?maxAge=2592000)](https://www.nuget.org/packages/Plugin.Sensors/)
