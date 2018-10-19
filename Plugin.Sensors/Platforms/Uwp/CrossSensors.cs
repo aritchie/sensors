@@ -14,7 +14,7 @@ namespace Plugin.Sensors
             DeviceOrientation = new DeviceOrientationImpl();
             Gyroscope = new GyroscopeImpl();
             Magnetometer = new MagnetometerImpl();
-            MotionActivity = new MotionActivityImpl();
+            //MotionActivity = new MotionActivityImpl();
             Pedometer = new PedometerImpl();
             Proximity = new ProximityImpl();
         }

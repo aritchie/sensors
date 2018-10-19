@@ -1,5 +1,9 @@
 # CHANGE LOG
 
+## 2.5.0
+* Update to System.Reactive 4
+* Add SourceLink
+
 ## 2.4.2
 * [fix][ios] Queue is empty when firing from background
 * Minor shift of internals

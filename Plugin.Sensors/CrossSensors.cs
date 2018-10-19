@@ -106,18 +106,18 @@ namespace Plugin.Sensors
         }
 
 
-        static IMotionActivity currentMA;
-        public static IMotionActivity MotionActivity
-        {
-            get
-            {
-                if (currentMA == null)
-                    throw new ArgumentException(ERROR);
+        //static IMotionActivity currentMA;
+        //public static IMotionActivity MotionActivity
+        //{
+        //    get
+        //    {
+        //        if (currentMA == null)
+        //            throw new ArgumentException(ERROR);
 
-                return currentMA;
-            }
-            set => currentMA = value;
-        }
+        //        return currentMA;
+        //    }
+        //    set => currentMA = value;
+        //}
 
 
         static IPedometer currentPedometer;

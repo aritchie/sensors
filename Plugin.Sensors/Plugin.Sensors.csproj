@@ -1,4 +1,4 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.47">
+﻿<Project Sdk="MSBuild.Sdk.Extras/1.6.55">
 
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;MonoAndroid80;Xamarin.iOS10;uap10.0</TargetFrameworks>
@@ -28,10 +28,10 @@ Supported Platforms
         <PackageTags>ios android xamarin rx reactive motion sensors</PackageTags>
         <Product>$(AssemblyName) ($(TargetFramework))</Product>
         <AssemblyVersion>$(PackageVersion)</AssemblyVersion>
-        <PackageVersion>3.0.0</PackageVersion>
+        <PackageVersion>2.5.0</PackageVersion>
         <PackageProjectUrl>https://github.com/aritchie/sensors</PackageProjectUrl>
         <PackageReleaseNotes>https://github.com/aritchie/sensors/blob/master/changelog.md</PackageReleaseNotes>
-        <RepositoryUrl>https://github.com/aritchie/bluetoothle</RepositoryUrl>
+        <RepositoryUrl>https://github.com/aritchie/sensors</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <IncludeSymbols>True</IncludeSymbols>
         <IncludeSource>True</IncludeSource>
@@ -45,24 +45,26 @@ Supported Platforms
         <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)'=='Debug' ">
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
         <DebugType>full</DebugType>
         <DebugSymbols>true</DebugSymbols>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)'=='Release' ">
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
         <DebugType>pdbonly</DebugType>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <ItemGroup>
         <Compile Remove="Platforms\**\*.cs" />
         <None Include="Platforms\**\*.*" />
-        <PackageReference Include="System.Reactive" Version="4.1.0" />
+        <PackageReference Include="System.Reactive" Version="4.0.0" />
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0-beta-63127-02" PrivateAssets="All" />
     </ItemGroup>
 
     <ItemGroup Condition=" $(TargetFramework.StartsWith('MonoAndroid')) ">
         <Compile Include="Platforms\Android\**\*.cs" />
-        <PackageReference Include="Xamarin.GooglePlayServices.Location" Version="60.1142.1" />
+        <!--<PackageReference Include="Xamarin.GooglePlayServices.Awareness" Version="60.1142.1" />-->
     </ItemGroup>
 
     <ItemGroup Condition=" $(TargetFramework.StartsWith('Xamarin.iOS')) ">
