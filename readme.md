@@ -1,4 +1,6 @@
-# ACR Reactive Sensors Plugin for Xamarin & Windows
+# UPDATE - This library has now moved to the Shiny Framework at https://github.com/shinyorg/shiny
+
+## ACR Reactive Sensors Plugin for Xamarin & Windows
 _Easy to use, cross platform, REACTIVE Sensor Plugin for iOS, Android, and Windows UWP_
 
 [Change Log - May 26, 2018](changelog.md)
